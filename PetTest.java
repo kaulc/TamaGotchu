@@ -21,14 +21,14 @@ import thePet.Pet;
 			String pName = input.next();
 			
 			System.out.print("\n Is your pet Male or Female? (M/F)");
-			boolean pGender = (input.next() == "M");  
+			boolean pGender = (input.next() == "Male");  
 			
-			String storeName = null;
+			String itemName = null;
 			int price = 0;
 			int health = 0;
 			int hunger = 0;
 			
-			StoreObjects item = new StoreObjects(storeName, price, health, hunger);
+			StoreObjects item = new StoreObjects(itemName, price, health, hunger);
 			Pet yourPet = new Pet(pName, pGender);
 			
 			
@@ -68,15 +68,14 @@ import thePet.Pet;
 			
 			
 			else if (mainInput.equals("Status")) {
-				System.out.println(yourPet.getAge());
-				System.out.println(yourPet.getHealth());
-				System.out.println(yourPet.getName());
-				System.out.println(yourPet.getLevel());
-				System.out.println(yourPet.getPoints());
-				System.out.println(yourPet.getHunger());
-				System.out.println(yourPet.getInventory());
-				System.out.println(yourPet.getNumItems());
-				System.out.println(yourPet.isDead());				
+				System.out.println("Name: " + yourPet.getName());
+				System.out.println("Gender: " + yourPet.getGender());
+				System.out.println("Level " + yourPet.getLevel());
+				System.out.println("Age: " + yourPet.getAge());
+				System.out.println("Points: " + yourPet.getPoints());
+				System.out.println("Health: " + yourPet.getHealth());
+				System.out.println("Hunger: " + yourPet.getHunger());
+				System.out.println("Inventory Items: " + yourPet.getInventory());
 			}
 			
 			else if (mainInput.equals("Shop")) {
