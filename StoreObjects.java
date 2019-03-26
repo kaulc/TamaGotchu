@@ -1,4 +1,4 @@
-package Store;
+package thePet;
 
 public class StoreObjects {
 
@@ -26,6 +26,7 @@ public class StoreObjects {
 		 shirts[2] = new StoreObjects("Red Shirt", 200, 0 , 0);
 		 shirts[3] = new StoreObjects("Yellow Shirt", 200, 0 , 0);
 		 shirts[4] = new StoreObjects("Gold Shirt", 1000, 0 , 0);
+		 
 		 
 		 
 		 StoreObjects[] pants = new StoreObjects[5];
@@ -71,7 +72,26 @@ public class StoreObjects {
 		 
 	 }
 	
+		public String toString() {
+			return "Item [name = " + name + ", price = " + price + ", health = " + health + ", hunger = " + hunger + "]";
+			
+		}
 	
+		public String getName() {
+			return name;
+		}
+		
+		public int getPrice() {
+			return price;
+		}
+		
+		public int getHealth() {
+			return health;
+		}
+		
+		public int getHunger() {
+			return hunger;
+		}
 	
 	
 	
