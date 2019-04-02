@@ -6,7 +6,7 @@ public class GamePlay {
 
 	static Protagonist p = new Protagonist(50, 3, 15, 4000); // STATS WILL BE IMPORTED FROM OTHER PET CLASSES
 	static Boolean play = true;
-
+	static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
 
 		String tempAns = "";
@@ -14,8 +14,6 @@ public class GamePlay {
 		int numRounds = 0; // round = # monsters fought to reach final monster
 		int stepCounter = 0;
 		int roundCounter = 0;
-
-		Scanner sc = new Scanner(System.in);
 
 		// start screen text
 
@@ -61,9 +59,6 @@ public class GamePlay {
 				System.out.println("TESTING: numSteps = " + numSteps);
 				
 
-				
-				
-				/***
 				while (stepCounter < numSteps) {
 					System.out.print("Now you can either go left, right, or forward. What do you choose? [l/r/f]");
 					System.out.println();
@@ -78,7 +73,7 @@ public class GamePlay {
 					}
 					tempAns = tempAns.toLowerCase();
 					stepCounter++;
-				}*/
+				}
 			
 			
 				
@@ -102,6 +97,8 @@ public class GamePlay {
 				fightMonster(generateBossMonster(p.getLevel()));
 				// generate boss monster and fight him - hard fight
 			}
+			
+			sc.close();
 
 		}
 	}
@@ -127,23 +124,22 @@ public class GamePlay {
 		System.out.println("~~~");
 		int petTurn = (int) (Math.random() * 2); // true or false, randomizes who starts fighting first
 		String tempAns = "";
-		Scanner sc = new Scanner(System.in);
 
 		m.introStats();
 
 		while (p.checkHealth() == true && m.checkHealth() == true) { // fight till someone dies
 			if (petTurn == 1) {
 				System.out.println("\nIt's your turn!");
-				System.out.println("Press [j] to defend, [i] to dodge, [l] to attack, or [s] for your stats");
+				System.out.println("asdfPress [j] to defend, [i] to dodge, [l] to attack, or [s] for your stats");
 
 				tempAns = "x";
 
 				while (!tempAns.equals("j") && !tempAns.equals("i") && !tempAns.equals("l")) { // prompt user for proper
 																								// input
-					if (sc.hasNextLine()) {
-						tempAns = sc.nextLine();
-						tempAns = tempAns.toLowerCase();
-					}
+			
+					tempAns = sc.next();
+					
+					tempAns = tempAns.toLowerCase().trim();
 					if (tempAns.equals("j")) {
 						p.defend();
 						break;
@@ -189,7 +185,6 @@ public class GamePlay {
 			play = true;
 		}
 		System.out.println("~~~");
-		sc.close();
 		return play;
 
 	}
