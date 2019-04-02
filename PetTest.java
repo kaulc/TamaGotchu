@@ -21,7 +21,7 @@ import thePet.Pet;
 			String pName = input.next();
 			
 			System.out.print("\n Is your pet Male or Female? (M/F)");
-			boolean pGender = (input.next() == "Male");  
+			String pGender = input.next();  
 			
 			String itemName = null;
 			int price = 0;
@@ -40,6 +40,18 @@ import thePet.Pet;
 			
 			if(mainInput.equals("Games")) {
 				System.out.println("Jump   Castle   Fight   Shop");
+				
+				String gamesInput = input.next();
+				
+				if (gamesInput.equals("Shop")) {
+					
+					
+					yourPet.addInventory(item);
+					yourPet.decreasePoints(price);
+					yourPet.decreaseHunger(hunger);
+					yourPet.healthIncrease(health);
+					
+				}
 			}
 			
 			else if(mainInput.equals("Feed")) {
@@ -78,13 +90,7 @@ import thePet.Pet;
 				System.out.println("Inventory Items: " + yourPet.getInventory());
 			}
 			
-			else if (mainInput.equals("Shop")) {
-				yourPet.addInventory(item);
-				yourPet.decreasePoints(price);
-				yourPet.decreaseHunger(hunger);
-				yourPet.healthIncrease(health);
-				
-			}
+			
 				
 			
 		}

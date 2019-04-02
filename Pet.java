@@ -12,40 +12,38 @@ import thePet.StoreObjects;
 		private double age;
 		private double health;
 		private String name;
+		private String gender;
 		private double level;
-		private boolean isMale;
 		private int points;
 		private double hunger;
 		private List<StoreObjects> inventory = new ArrayList<>();
-		private int numItems;
 		private boolean isDead;
 		
 		
 		
-		public Pet(int age, int health, String name, double level, boolean isMale,
+		public Pet(int age, int health, String name, double level, String gender,
 				int points,double hunger, List<StoreObjects> inventory, int numItems, boolean isDead ) {
 			
 			this.age = age;
 			this.health = health;
 			this.name = name;
 			this.level = level;
-			this.isMale = isMale;
+			this.gender = gender;
 			this.points = points;
 			this.hunger = hunger;
 			this.inventory = inventory;
-			this.numItems = numItems;
 			this.isDead = isDead;
 			
 		}
 		
-		public Pet(String name, boolean isMale) {
+		public Pet(String name, String gender) {
 			this.name = name;
 			age = 0;
 			health = 100;
 			level = 0;
 			points = 500;
 			hunger = 100;
-			this.isMale = isMale;
+			this.gender = gender;
 		}
 		
 		
@@ -104,10 +102,10 @@ import thePet.StoreObjects;
 		//gender methods
 		
 		public void changeGender() {
-			if (isMale) {
-				isMale = false;
+			if (gender == "F") {
+				gender = "Female";
 			}
-			else isMale = true;
+			else gender = "Male";
 		}
 		
 		//point methods
@@ -156,13 +154,6 @@ import thePet.StoreObjects;
 		}
 
 		
-		//numItems methods (not sure if we even need these) 
-		
-		public int getNumItems() {
-			return numItems;
-		}
-		
-		
 		//isDead methods
 		
 		
@@ -173,6 +164,10 @@ import thePet.StoreObjects;
 			else { isDead = false; }
 			
 			return isDead;
+		}
+
+		public String getGender() {
+			return gender;
 		}
 		
 		
