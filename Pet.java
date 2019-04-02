@@ -16,7 +16,7 @@ import thePet.StoreObjects;
 		private double level;
 		private int points;
 		private double hunger;
-		private List<StoreObjects> inventory = new ArrayList<>();
+		public List<StoreObjects> inventory = new ArrayList<>();
 		private boolean isDead;
 		
 		

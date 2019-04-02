@@ -9,7 +9,7 @@ public class StoreObjects {
 	public int price;
 	public int health;
 	public int hunger;
-	
+	static StoreObjects[] items = new StoreObjects[29];
 
     public StoreObjects(String name, int price, int health, int hunger){
 	      this.name = name;
@@ -20,57 +20,8 @@ public class StoreObjects {
 	   
 
 	public static void main(String[] args) {
+	
 		
-/*		 StoreObjects[] items = new StoreObjects[5];
-		 
-		 items[0] = new StoreObjects("Green Shirt", 200, 0, 0);
-		 items[1] = new StoreObjects("Blue Shirt", 200, 0 , 0);
-		 items[2] = new StoreObjects("Red Shirt", 200, 0 , 0);
-		 items[3] = new StoreObjects("Yellow Shirt", 200, 0 , 0);
-		 items[4] = new StoreObjects("Gold Shirt", 1000, 0 , 0);
-		 
-		 
-		 StoreObjects[] items = new StoreObjects[5];
-		 
-		 items[0] = new StoreObjects("Green items", 300, 0, 0);
-		 items[1] = new StoreObjects("Blue items", 300, 0 , 0);
-		 items[2] = new StoreObjects("Red items", 300, 0 , 0);
-		 items[3] = new StoreObjects("Yellow items", 300, 0 , 0);
-		 items[4] = new StoreObjects("Gold items", 1500, 0 , 0);
-		 
-		 StoreObjects[] items = new StoreObjects[5];
-		 
-		 items[0] = new StoreObjects("Nikes", 500, 0, 0);
-		 items[1] = new StoreObjects("Adidas", 500, 0 , 0);
-		 items[2] = new StoreObjects("Jordans", 750, 0 , 0);
-		 items[3] = new StoreObjects("Vans", 300, 0 , 0);
-		 items[4] = new StoreObjects("Yeezys", 1500, 0 , 0);
-		 
-		 StoreObjects[] items = new StoreObjects[5];
-		 
-		 items[0] = new StoreObjects("Cheese", 300, 75, 75);
-		 items[1] = new StoreObjects("Beef", 300, 75, 75);
-		 items[2] = new StoreObjects("Beans", 250, 70, 70);
-		 items[3] = new StoreObjects("Soup", 100, 25, 25);
-		 items[4] = new StoreObjects("Cake", 500, 100, 100);
-		 
-		 StoreObjects[] items = new StoreObjects[5];
-		 
-		 items[0] = new StoreObjects("Water", 50, 15, 15);
-		 items[1] = new StoreObjects("Apple Juice", 100, 25 , 25);
-		 items[2] = new StoreObjects("Orange Juice", 100, 25 , 25);
-		 items[3] = new StoreObjects("Milk", 150, 40 , 40);
-		 items[4] = new StoreObjects("Chocolate Milk", 500, 100 , 100);	
-		 
-		 StoreObjects[] items = new StoreObjects[4];
-		 
-		 items[0] = new StoreObjects("Mild Potion", 100, 25, 25);
-		 items[1] = new StoreObjects("Medium Potion", 200, 50 , 50);
-		 items[2] = new StoreObjects("Good Potion", 300, 75, 75);
-		 items[3] = new StoreObjects("Best Potion", 500, 100, 100); */
-		
-		
-		StoreObjects[] items = new StoreObjects[29];
 		 
 		 items[0] = new StoreObjects("Green Shirt", 200, 0, 0);
 		 items[1] = new StoreObjects("Blue Shirt", 200, 0 , 0);
@@ -116,16 +67,11 @@ public class StoreObjects {
 		 
 	 }
 	
-	/*	public StoreObjects getItem(int number, StoreObjects[] items) {
-			for (int i = 0; i < items.length; i++) {
-					if () {
-						
-				}
-			}
-			
-			
-		}   */
 	
-
+	public StoreObjects getItem(int shopInput) {
+		return items[shopInput];
+	}
+	
+	
 	
 }
