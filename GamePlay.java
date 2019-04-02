@@ -19,7 +19,7 @@ public class GamePlay {
 
 		// start screen text
 
-		System.out.println("Welcome to - witty game name -");
+		System.out.println("Welcome to Castle Dash");
 		System.out.println("You find yourself at the entrance of a castle. You read a sign that states: ");
 		System.out.println("- In this castle lies a room of riches. If you find it, you keep it. Enter at your risk.");
 		System.out.println("Press [p] to enter the castle and start playing, [s] for stats, or [e] to exit.");
@@ -47,8 +47,7 @@ public class GamePlay {
 		if (tempAns.equals("p")) {
 
 			System.out.println("You enter the castle.");
-
-			/** ROUND 1 **/
+ 
 			stepCounter = 0;
 			roundCounter = 0;
 
@@ -57,12 +56,14 @@ public class GamePlay {
 			roundCounter = 0;
 			
 			while (roundCounter < numRounds) {
-				numSteps = (int) ((Math.random() * numRounds * 2) + roundCounter + 1); // generates num steps for next round based on
-																					// current round
+				numSteps = (int) ((Math.random() * numRounds * 2) + roundCounter + 1); // generates num steps for next round based on current round
+				stepCounter = 0;																
 				System.out.println("TESTING: numSteps = " + numSteps);
 				
-				System.out.println("You go forward and face three choices.");
-				stepCounter = 0;
+
+				
+				
+				/***
 				while (stepCounter < numSteps) {
 					System.out.print("Now you can either go left, right, or forward. What do you choose? [l/r/f]");
 					System.out.println();
@@ -77,7 +78,9 @@ public class GamePlay {
 					}
 					tempAns = tempAns.toLowerCase();
 					stepCounter++;
-				}
+				}*/
+			
+			
 				
 				System.out.println("\nOh no! You face a monster. Defeat it to continue your journey in the castle!\n ");
 				fightMonster(generateNewMonster(p.getLevel()));
@@ -87,7 +90,7 @@ public class GamePlay {
 			
 			System.out.println("Good job! You have successfully defeated all the monsters in the castle.");
 			System.out.println("You continue walking forward and reach the end of the hallway, where there is a door that has a sign: ");
-			System.out.println("- Finders keepers -- >");
+			System.out.println("- Finders keepers ");
 			System.out.println("Press any key to open the door and claim your riches!");
 			
 			if (sc.hasNextLine()) {
@@ -96,10 +99,15 @@ public class GamePlay {
 				System.out.println("But wait! Suddenly, the door slams shut behind you and you realize you are not alone in the room. You turn around...");
 				
 				System.out.println("\n\nIt's the final monster!! Defeat it to finally claim your riches! (boss fight asldfj)");
+				fightMonster(generateBossMonster(p.getLevel()));
 				// generate boss monster and fight him - hard fight
 			}
 
 		}
+	}
+	
+	private static Monster generateBossMonster(int petlevel) {
+		return new BossMonster(petlevel);
 	}
 
 	private static Monster generateNewMonster(int petlevel) {
@@ -181,24 +189,9 @@ public class GamePlay {
 			play = true;
 		}
 		System.out.println("~~~");
+		sc.close();
 		return play;
 
 	}
 
 }
-
-/*
- * // REPLACE Y/N WITH BUTTONS if (!tempAns.equals("y") && !tempAns.equals("n"))
- * { while (!tempAns.equals("y") && !tempAns.equals("n")) {
- * System.out.println("Are you up for the challenge? Type [y/n]"); } } if
- * (tempAns.equals("n")) {} // whatever needs to happen to end the game
- */
-/*
- * 
- * if (!tempAns.equals("p") && !tempAns.equals("s") && !tempAns.equals("e")) {
- * while (!tempAns.equals("p") && !tempAns.equals("s") && !tempAns.equals("e"))
- * { System.out.
- * println("Press [p] to enter the castle and start playing, [s] for stats, or [e] to exit."
- * ); if (sc.hasNextLine()) tempAns = sc.nextLine(); tempAns =
- * tempAns.toLowerCase(); } }
- */

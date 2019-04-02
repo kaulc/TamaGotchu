@@ -1,6 +1,6 @@
 package Game1;
 
-public abstract class Monster extends LivingThing implements Action {
+public abstract class Monster extends LivingThing implements FightingActions {
 
 	protected String keyMove;
 	protected String[] keyMoves = {"Scissorkick", "Megapunch", "Jabbyjab", "Superslap"};
@@ -61,11 +61,11 @@ public abstract class Monster extends LivingThing implements Action {
 		
 		if (keyMoveTF == 1) {
 			System.out.println("Monster attacks with key move!");
-			giveDamage = 2 * ((int)(Math.random() * level) + (health / 2)) + 14; // random algorithm to determine attack intensity - doubled for key move
+			giveDamage = 2 * ((int)(Math.random() * level) + (health / 3)) + 14; // random algorithm to determine attack intensity - doubled for key move
 		}
 		else {
 			System.out.println("Monster attacks");
-			giveDamage = (int)(Math.random() * level) + (health / 2); // random algorithm to determine attack intensity
+			giveDamage = (int)(Math.random() * level) + (health / 3); // random algorithm to determine attack intensity
 		}
 		
 		System.out.println("Monster inflicts " + giveDamage + " damage");

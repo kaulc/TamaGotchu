@@ -11,7 +11,7 @@ public class BlueMonster extends Monster{
 	public BlueMonster(int petLevel) {
 
 		level = (int) (Math.random() * petLevel); // monster level is random number <= petLevel
-		health = (int) ((Math.random() * 60) + 20);
+		health = (int) ((Math.random() * 70) + 20);
 		keyMove = keyMoves[(int) (Math.random() * 4)]; // chooses one of 4 possible keyMoves from set list
 		alive = true;
 	}
