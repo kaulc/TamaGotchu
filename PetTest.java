@@ -3,6 +3,7 @@ package thePet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import gnu.io.SerialPortEventListener;
 import thePet.Pet;
 
 	public class PetTest {
@@ -10,16 +11,17 @@ import thePet.Pet;
 		public static void main(String[] args) {
 			
 			Scanner input = new Scanner(System.in);
-			
+			Controller d= new Controller();
 			System.out.println("Hello, welcome!");
+			
 			//System.out.print("Would you like to load from file??");
 			
 			//System.out.print("Which Pet would you like? (1, 2, 3)");
 			//String mainInput = input.next();
 			
-			System.out.print("Please enter in the name for your new pet: ");
+			//System.out.print("Please enter in the name for your new pet: ");
+			System.out.print("David     Chinar    Simon     Ani");			
 			String pName = input.next();
-			
 			System.out.print("\n Is your pet Male or Female? (M/F)");
 			String pGender = input.next();  
 			
@@ -86,9 +88,9 @@ import thePet.Pet;
 					int itemNum = Integer.parseInt(shopInput);
 					
 					yourPet.addInventory(item.getItem(itemNum));
-					yourPet.decreasePoints(item.price);
-					yourPet.decreaseHunger(item.hunger);
-					yourPet.healthIncrease(item.health);
+					yourPet.decreasePoints(item.getItem(itemNum).price);
+					yourPet.decreaseHunger(item.getItem(itemNum).hunger);
+					yourPet.healthIncrease(item.getItem(itemNum).health);
 					
 					System.out.println("Points: " + yourPet.getPoints());
 					System.out.println("Inventory Items: " + yourPet.getInventory());
