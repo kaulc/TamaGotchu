@@ -7,8 +7,28 @@ public class GamePlay {
 	static Protagonist p = new Protagonist(50, 3, 15, 4000); // STATS WILL BE IMPORTED FROM OTHER PET CLASSES
 	static Boolean play = true;
 	static Scanner sc = new Scanner(System.in);
+	
+	public Boolean getPlay() {
+		return play;
+	}
+	
+	public void setPlay(Boolean bool) {
+		play = bool;
+	}
+	
+	public Protagonist getProtagonist() {
+		return p;
+	}
+	
+	public void setProtagonist(Protagonist pro) {
+		p = pro;
+	}
+	
+	
 	public static void main(String[] args) {
-
+		
+		Contralar controller = new Contralar();
+		
 		String tempAns = "";
 		int numSteps = 0; // step = # actions taken to find one monster
 		int numRounds = 0; // round = # monsters fought to reach final monster
@@ -21,12 +41,12 @@ public class GamePlay {
 		System.out.println("You find yourself at the entrance of a castle. You read a sign that states: ");
 		System.out.println("- In this castle lies a room of riches. If you find it, you keep it. Enter at your risk.");
 		System.out.println("Press [p] to enter the castle and start playing, [s] for stats, or [e] to exit.");
-
+		
+		/* NOT NEEDED WHEN WE USE BUTTONS
 		if (sc.hasNextLine())
 			tempAns = sc.nextLine();
 		tempAns = tempAns.toLowerCase();
 
-		// NOT NEEDED WHEN WE USE BUTTONS
 		while (!tempAns.equals("p")) {
 			if (!tempAns.equals("p") && !tempAns.equals("s") && !tempAns.equals("e")) {
 				System.out.println("Press [p] to enter the castle and start playing, [s] for stats, or [e] to exit.");
@@ -42,7 +62,9 @@ public class GamePlay {
 				tempAns = sc.nextLine();
 		}
 
-		if (tempAns.equals("p")) {
+		if (tempAns.equals("p")) {*/
+		
+		if (play) {
 
 			System.out.println("You enter the castle.");
  
@@ -50,13 +72,13 @@ public class GamePlay {
 			roundCounter = 0;
 
 			numRounds = (int) (Math.random() * (numRounds * 5) + 3); // rounds will be randomly generated
-			System.out.println("TESTING: numRounds = " + numRounds);
+			//System.out.println("TESTING: numRounds = " + numRounds);
 			roundCounter = 0;
 			
 			while (roundCounter < numRounds) {
 				numSteps = (int) ((Math.random() * numRounds * 2) + roundCounter + 1); // generates num steps for next round based on current round
 				stepCounter = 0;																
-				System.out.println("TESTING: numSteps = " + numSteps);
+				//System.out.println("TESTING: numSteps = " + numSteps);
 				
 
 				while (stepCounter < numSteps) {
@@ -130,16 +152,15 @@ public class GamePlay {
 		while (p.checkHealth() == true && m.checkHealth() == true) { // fight till someone dies
 			if (petTurn == 1) {
 				System.out.println("\nIt's your turn!");
-				System.out.println("asdfPress [j] to defend, [i] to dodge, [l] to attack, or [s] for your stats");
+				System.out.println("Press [j] to defend, [i] to dodge, [l] to attack, or [s] for your stats");
 
 				tempAns = "x";
 
 				while (!tempAns.equals("j") && !tempAns.equals("i") && !tempAns.equals("l")) { // prompt user for proper
 																								// input
-			
 					tempAns = sc.next();
-					
 					tempAns = tempAns.toLowerCase().trim();
+					
 					if (tempAns.equals("j")) {
 						p.defend();
 						break;
@@ -188,5 +209,9 @@ public class GamePlay {
 		return play;
 
 	}
+	
+	
+	
+	
 
 }
