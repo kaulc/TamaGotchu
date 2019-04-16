@@ -25,8 +25,6 @@ public class StartScreen {
 		win.setLocation(0, 0);
 		win.add(text);
 		win.setVisible(true);
-		
-		
 	}
 
 }

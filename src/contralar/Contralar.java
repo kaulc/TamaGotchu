@@ -145,7 +145,7 @@ public class Contralar implements SerialPortEventListener {
 		}
 	}
 
-	public String butenbrees() {
+	public String buttonPress() {
 		try {
 			return input.readLine();
 		} catch (IOException e) {

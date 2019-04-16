@@ -31,7 +31,7 @@ class Game {
 		
 		if (e.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 			
-			String str = controller.butenbrees();
+			String str = controller.buttonPress();
 			if(str.equals("m")) { // main menu
 				System.out.println("menu button");
 				gp.setPlay(false);
