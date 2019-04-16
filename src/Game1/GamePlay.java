@@ -188,7 +188,7 @@ public class GamePlay {
 					"But wait! Suddenly, the door slams shut behind you and you realize you are not alone in the room. You turn around...");
 
 			System.out.println(
-					"\n\nIt's the final monster!! Defeat it to finally claim your riches! (boss fight asldfj)");
+					"\n\nIt's the final monster!! Defeat it to finally claim your riches!");
 			fightMonster(generateBossMonster(p.getLevel()));
 			// generate boss monster and fight him - hard fight
 		}
