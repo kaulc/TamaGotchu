@@ -51,10 +51,12 @@ public class GamePlay {
 			}
 			if (tempAns.equals("d")) {
 				System.out.println("Okay thanks for playing, bye");
+				play = false;
 				break;
 			}
 			if (tempAns.equals("s")) {
 				p.stats();
+				System.out.println("Press [a] to enter the castle and start playing, [s] for stats, or [d] to exit.");
 			}
 			if (tempAns.equals("a")) {
 				play = true;
@@ -83,8 +85,8 @@ public class GamePlay {
 				// System.out.println("TESTING: numSteps = " + numSteps);
 
 				while (stepCounter < numSteps) {
-
-					choice = p.chooseAction();
+					System.out.println();
+					
 					// 1. apple
 					if (choice == 1) {
 						System.out.println("You encounter an apple! Pick it up? [d] for yes, [f] for no");
@@ -103,10 +105,11 @@ public class GamePlay {
 							}
 						}
 						else if (tempAns.equals("f")) System.out.println("You walk away from the apple.");
-
+						choice = 4;
 					} else if (choice == 2) {
 						System.out.println("You encounter a heart! <3");
 						p.addHealth(10);
+						choice = 4;
 					} else if (choice == 3) {
 						System.out.println("You encounter a treasure chest!! Open it? [d] for yes, [f] for no");
 						if (sc.hasNextLine())
@@ -146,6 +149,7 @@ public class GamePlay {
 						else if (tempAns.equals("f")) {
 							System.out.println("You decide not to open it and walk away.");
 						}
+						choice = 4;
 					}
 					else {
 
@@ -165,11 +169,13 @@ public class GamePlay {
 						/////
 						tempAns = tempAns.toLowerCase();
 						stepCounter++;
+						choice = p.chooseAction();
 					}
 				}
 
 				System.out.println("\nOh no! You face a monster. Defeat it to continue your journey in the castle!\n ");
 				fightMonster(generateNewMonster(p.getLevel()));
+				choice = 4;
 
 				roundCounter++;
 			}
@@ -182,6 +188,7 @@ public class GamePlay {
 		System.out.println("Press any key to open the door and claim your riches!");
 
 		if (sc.hasNextLine()) {
+			System.out.println();
 			System.out.println("You open the door and there lies a room with piles and piles of gold and treasure. "
 					+ "You walk towards the treasures in awe with your arms wide.");
 			System.out.println(
