@@ -49,10 +49,15 @@ public class Contralar implements SerialPortEventListener {
 		enumComm = CommPortIdentifier.getPortIdentifiers();
 		while (enumComm.hasMoreElements()) {
 			serialPortId = (CommPortIdentifier) enumComm.nextElement();
-			if (serialPortId.getPortType() == CommPortIdentifier.PORT_SERIAL) {
-				portId = serialPortId;
-				return serialPortId.getName();
+			for (String portName : PORT_NAMES) {
+
+				if (serialPortId.getName().equals(portName)) {
+					portId = serialPortId;
+					break;
+				}
 			}
+
+			return serialPortId.getName();
 		}
 		return "num";
 	}
