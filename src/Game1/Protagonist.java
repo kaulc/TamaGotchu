@@ -62,19 +62,18 @@ public class Protagonist extends LivingThing implements FightingActions, Action 
 			alive = true;
 		return alive;
 	}
-	
+
 	// adds set amount of health to protagonist's health
-		public void addHealth(int h) {
-			health += h;
-			System.out.println("Gained " + h + " health. ");
-		}
-		
+	public void addHealth(int h) {
+		health += h;
+		System.out.println("Gained " + h + " health. ");
+	}
+
 	// adds set amount of points to protagonist's points
 	public void addPoints(int pts) {
 		points += pts;
 		System.out.println("Gained " + pts + " points. ");
 	}
-
 
 	@Override
 	public void getAttacked(int getDamage) {
@@ -107,8 +106,7 @@ public class Protagonist extends LivingThing implements FightingActions, Action 
 		String tempAns = "z";
 
 		System.out.print("\nYou can either go left, right, or forward. What do you choose? [l/r/f]");
-		
-		
+
 		while (!tempAns.equals("l") && !tempAns.equals("r") && !tempAns.equals("f")) { // prompt user for proper input
 			if (sc.hasNextLine()) {
 				tempAns = sc.nextLine();
