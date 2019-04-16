@@ -26,7 +26,7 @@ public class GamePlay {
 
 	public static void main(String[] args) {
 
-		//Contralar controller = new Contralar();
+		// Contralar controller = new Contralar();
 
 		String tempAns = "";
 		int numSteps = 0; // step = # actions taken to find one monster
@@ -66,44 +66,48 @@ public class GamePlay {
 		if (play) {
 
 			System.out.println("You enter the castle.");
-			choice = p.chooseAction();
 
-			// 1. WALK
-			if (choice == 1) {
-				System.out.println("You encounter an apple! Pick it up?");
+			stepCounter = 0;
+			roundCounter = 0;
 
-				// IF STATEMENT FROM TEST BUTTONS
-				if (sc.hasNextLine())
-					tempAns = sc.nextLine();
-				if (tempAns.equals("d")) {
-					int rand = (int) (Math.random() * 3);
-					if (rand == 0 || rand == 1) {
-						System.out.println("Mm.. it's a tasty apple. ");
-						p.addPoints(10);
-					} else if (tempAns.equals("f")) {
-						System.out.println("Eww.. the apple is way too sour. ");
-						p.addPoints(-10);
-					}
-				}
+			numRounds = (int) (Math.random() * (numRounds * 5) + 3); // rounds will be randomly generated
+			// System.out.println("TESTING: numRounds = " + numRounds);
+			roundCounter = 0;
 
-			} else if (choice == 2) {
-				System.out.println("You encounter a heart! <3");
-			} else {
+			while (roundCounter < numRounds) {
+
+				numSteps = (int) ((Math.random() * numRounds * 2) + roundCounter + 1); // generates num steps for
+																						// next round based on
+																						// current round
 				stepCounter = 0;
-				roundCounter = 0;
+				// System.out.println("TESTING: numSteps = " + numSteps);
 
-				numRounds = (int) (Math.random() * (numRounds * 5) + 3); // rounds will be randomly generated
-				// System.out.println("TESTING: numRounds = " + numRounds);
-				roundCounter = 0;
+				while (stepCounter < numSteps) {
 
-				while (roundCounter < numRounds) {
-					numSteps = (int) ((Math.random() * numRounds * 2) + roundCounter + 1); // generates num steps for
-																							// next round based on
-																							// current round
-					stepCounter = 0;
-					// System.out.println("TESTING: numSteps = " + numSteps);
+					choice = p.chooseAction();
+					// 1. apple
+					if (choice == 1) {
+						System.out.println("You encounter an apple! Pick it up? [d] for yes, [f] for no");
 
-					while (stepCounter < numSteps) {
+						// IF STATEMENT FROM TEST BUTTONS
+						if (sc.hasNextLine())
+							tempAns = sc.nextLine();
+						if (tempAns.equals("d")) {
+							int rand = (int) (Math.random() * 3);
+							if (rand == 0 || rand == 1) {
+								System.out.println("Mm.. it's a tasty apple. ");
+								p.addPoints(10);
+							} else if (tempAns.equals("f")) {
+								System.out.println("Eww.. the apple is way too sour. ");
+								p.addPoints(-10);
+							}
+						}
+
+					} else if (choice == 2) {
+						System.out.println("You encounter a heart! <3");
+						p.addHealth(10);
+					} else {
+
 						System.out.print("Now you can either go left, right, or forward. What do you choose? [l/r/f]");
 						System.out.println();
 
@@ -121,37 +125,37 @@ public class GamePlay {
 						tempAns = tempAns.toLowerCase();
 						stepCounter++;
 					}
-
-					System.out.println(
-							"\nOh no! You face a monster. Defeat it to continue your journey in the castle!\n ");
-					fightMonster(generateNewMonster(p.getLevel()));
-
-					roundCounter++;
 				}
+
+				System.out.println("\nOh no! You face a monster. Defeat it to continue your journey in the castle!\n ");
+				fightMonster(generateNewMonster(p.getLevel()));
+
+				roundCounter++;
 			}
-
-			System.out.println("Good job! You have successfully defeated all the monsters in the castle.");
-			System.out.println(
-					"You continue walking forward and reach the end of the hallway, where there is a door that has a sign: ");
-			System.out.println("- Finders keepers ");
-			System.out.println("Press any key to open the door and claim your riches!");
-
-			if (sc.hasNextLine()) {
-				System.out.println("You open the door and there lies a room with piles and piles of gold and treasure. "
-						+ "You walk towards the treasures in awe with your arms wide.");
-				System.out.println(
-						"But wait! Suddenly, the door slams shut behind you and you realize you are not alone in the room. You turn around...");
-
-				System.out.println(
-						"\n\nIt's the final monster!! Defeat it to finally claim your riches! (boss fight asldfj)");
-				fightMonster(generateBossMonster(p.getLevel()));
-				// generate boss monster and fight him - hard fight
-			}
-
-			sc.close();
 		}
 
+		System.out.println("Good job! You have successfully defeated all the monsters in the castle.");
+		System.out.println(
+				"You continue walking forward and reach the end of the hallway, where there is a door that has a sign: ");
+		System.out.println("- Finders keepers ");
+		System.out.println("Press any key to open the door and claim your riches!");
+
+		if (sc.hasNextLine()) {
+			System.out.println("You open the door and there lies a room with piles and piles of gold and treasure. "
+					+ "You walk towards the treasures in awe with your arms wide.");
+			System.out.println(
+					"But wait! Suddenly, the door slams shut behind you and you realize you are not alone in the room. You turn around...");
+
+			System.out.println(
+					"\n\nIt's the final monster!! Defeat it to finally claim your riches! (boss fight asldfj)");
+			fightMonster(generateBossMonster(p.getLevel()));
+			// generate boss monster and fight him - hard fight
+		}
+
+		sc.close();
 	}
+
+	
 
 	private static Monster generateBossMonster(int petlevel) {
 		return new BossMonster(petlevel);
@@ -241,4 +245,3 @@ public class GamePlay {
 	}
 
 }
-	
