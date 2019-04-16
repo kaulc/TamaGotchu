@@ -102,6 +102,7 @@ public class GamePlay {
 								p.addPoints(-10);
 							}
 						}
+						else if (tempAns.equals("f")) System.out.println("You walk away from the apple.");
 
 					} else if (choice == 2) {
 						System.out.println("You encounter a heart! <3");
@@ -135,7 +136,7 @@ public class GamePlay {
 										p.addPoints(-50);
 									}
 								}
-
+								else if (tempAns.equals("f")) System.out.println("You walk away from the apples.");
 								
 							}
 							else if (temp == 3) {
