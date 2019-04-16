@@ -62,6 +62,19 @@ public class Protagonist extends LivingThing implements FightingActions, Action 
 			alive = true;
 		return alive;
 	}
+	
+	// adds set amount of health to protagonist's health
+		public void addHealth(int h) {
+			health += h;
+			System.out.println("Gained " + h + " health. ");
+		}
+		
+	// adds set amount of points to protagonist's points
+	public void addPoints(int pts) {
+		points += pts;
+		System.out.println("Gained " + pts + " points. ");
+	}
+
 
 	@Override
 	public void getAttacked(int getDamage) {
@@ -89,7 +102,7 @@ public class Protagonist extends LivingThing implements FightingActions, Action 
 	}
 
 	@Override
-	public int turn() {
+	public int turn() { // NOT USED
 		Scanner sc = new Scanner(System.in);
 		String tempAns = "z";
 
@@ -125,9 +138,9 @@ public class Protagonist extends LivingThing implements FightingActions, Action 
 	public int chooseAction() {
 		int choice = (int) (Math.random() * 7);
 		// random selection of 3 or 4 actions to encounter in hallway
-		// if choice == 1 --> encounter treasure chest
-		// if choice == 2 --> encounter weapon
-		// if choice == 3 --> encounter gem (apple)
+		// if choice == 1 --> encounter gem (apple) (points)
+		// if choice == 2 --> encounter heart (health)
+		// if choice == 3 --> encounter treasure chest
 		// else (choice == 4, 5, 6) --> keep walking and turn
 		return choice;
 	}
