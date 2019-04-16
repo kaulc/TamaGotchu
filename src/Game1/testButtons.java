@@ -1,6 +1,8 @@
 package Game1;
 
 import java.util.TooManyListenersException;
+
+import contralar.Contralar;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 

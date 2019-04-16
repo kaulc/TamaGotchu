@@ -2,6 +2,8 @@ package Game1;
 
 import java.util.Scanner;
 
+import contralar.Contralar;
+
 public class GamePlay {
 
 	static Protagonist p = new Protagonist(50, 3, 15, 4000); // STATS WILL BE IMPORTED FROM OTHER PET CLASSES
