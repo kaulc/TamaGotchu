@@ -2,6 +2,7 @@ package thePet;
 
 import java.util.TooManyListenersException;
 
+import contralar.Contralar;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 
@@ -15,7 +16,7 @@ public class ChooseName {
 }
 	
 	class game implements SerialPortEventListener{
-		Controller g = new Controller();
+		Contralar g = new Contralar();
 		
 		public game() {
 			try {

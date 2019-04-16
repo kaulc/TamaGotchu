@@ -3,8 +3,6 @@ package thePet;
 	import java.util.ArrayList;
 	import java.util.List;
 
-import thePet.StoreObjects;
-
 	public class Pet {
 		
 		public final int INV_SIZE = 25;

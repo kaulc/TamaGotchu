@@ -3,6 +3,7 @@ package thePet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import contralar.Contralar;
 import gnu.io.SerialPortEventListener;
 import thePet.Pet;
 
@@ -11,7 +12,7 @@ import thePet.Pet;
 		public static void main(String[] args) {
 			
 			Scanner input = new Scanner(System.in);
-			Controller d= new Controller();
+			Contralar d= new Contralar();
 			System.out.println("Hello, welcome!");
 			
 			//System.out.print("Would you like to load from file??");
