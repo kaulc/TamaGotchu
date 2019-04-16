@@ -106,9 +106,49 @@ public class GamePlay {
 					} else if (choice == 2) {
 						System.out.println("You encounter a heart! <3");
 						p.addHealth(10);
-					} else {
+					} else if (choice == 3) {
+						System.out.println("You encounter a treasure chest!! Open it? [d] for yes, [f] for no");
+						if (sc.hasNextLine())
+							tempAns = sc.nextLine();
+						if (tempAns.equals("d")) {
+							System.out.println("You open it...");
+							int temp = (int) (Math.random() * 4);
+							if (temp == 0) {
+								break;
+							}
+							else if (temp == 1) {
+								System.out.println("<3 It's a chest full of hearts!! <3");
+								p.addHealth(50);
+							}
+							else if (temp == 2) {
+								
+								System.out.println("It's a chest full of apples :o Eat them? [d] for yes, [f] for no");
+								if (sc.hasNextLine())
+									tempAns = sc.nextLine();
+								if (tempAns.equals("d")) {
+									int rand = (int) (Math.random() * 3);
+									if (rand == 0 || rand == 1) {
+										System.out.println("Mm.. they are tasty apples. ");
+										p.addPoints(50);
+									} else if (tempAns.equals("f")) {
+										System.out.println("Eww.. the apples are way too sour. ");
+										p.addPoints(-50);
+									}
+								}
 
-						System.out.print("Now you can either go left, right, or forward. What do you choose? [l/r/f]");
+								
+							}
+							else if (temp == 3) {
+								System.out.println("It is empty :/");
+							}
+						}
+						else if (tempAns.equals("f")) {
+							System.out.println("You decide not to open it and walk away.");
+						}
+					}
+					else {
+
+						System.out.print("Now you can either go left, right, or forward. What do you choose? [s/d/f]");
 						System.out.println();
 
 						/////
@@ -210,7 +250,7 @@ public class GamePlay {
 						p.stats();
 					}
 					if (!tempAns.equals("s") && !tempAns.equals("d") && !tempAns.equals("f")) {
-						System.out.println("Press [j] to defend, [i] to dodge, [l] to attack, or [s]for your stats");
+						System.out.println("Press [s] to defend, [d] to dodge, [f] to attack, or [a] for your stats");
 					}
 					////
 				}
