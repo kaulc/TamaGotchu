@@ -28,7 +28,7 @@ public class InitPet {
 //		int health = 0;
 //		int hunger = 0;
 //		
-//	
+//	FIXME
 //		idk why this is here but ill ask ANI about it
 //		StoreObjects item = new StoreObjects(itemName, price, health, hunger);
 		

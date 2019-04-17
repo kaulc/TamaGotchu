@@ -8,12 +8,15 @@ public class MainMenu {
 
 	public static void menu(Pet myPet) {
 
-		System.out.println();
-		System.out.print("Welcome" + myPet.getName());
-		System.out.println("What would you like to do?");
-		System.out.println("Games Feed Walk Status");
+		String userInput ="";
 		Scanner user = new Scanner(System.in);
-		String userInput = user.next();
+		System.out.println();
+		System.out.print("Welcome, " + myPet.getName());
+		System.out.println(". What would you like to do?");
+		System.out.println("Games Feed Walk Status");
+		userInput += user.next();
+		
+
 
 //		while (!userInput.equals("Games") && !userInput.equals("Feed") && !userInput.equals("Walk")
 //				&& !userInput.equals("Status")) {
@@ -21,17 +24,18 @@ public class MainMenu {
 		//should be able to use whlie(true) since I'll be calling other methods from within this, if there seem to be 
 		//error we can check back here
 		//FIXME
-		while(true) {
+		while(!userInput.isEmpty()) {
 			if (userInput.equals("Games")) {
 
+				String gamesIn = "";
 				// Send them to games
 				System.out.println("Which game would you like to play?");
 				//Move "shop" into feed
 				System.out.println("Jump   Castle");
 				
-				userInput = user.next();
+				gamesIn += user.next();
 				
-				while(true) {
+				while(!gamesIn.isEmpty()) {
 					
 					if(userInput.equals("Jump")) {
 						
@@ -46,7 +50,7 @@ public class MainMenu {
 					else {
 						
 						System.out.println("Sorry we didn't quite get that, please type in your choice again");
-						userInput = user.next();
+						gamesIn = user.next();
 											
 					}
 					

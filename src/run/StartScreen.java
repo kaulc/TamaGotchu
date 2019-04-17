@@ -16,7 +16,7 @@ import javax.swing.JWindow;
 import pro.JUMP;
 import pro.JUMP2;
 import pro.JUMP3;
-import thePet.PetTest;
+//import thePet.PetTest;
 
 public class StartScreen {
 	private static Color myC0 = new Color(164, 196, 0, 254);
@@ -71,7 +71,6 @@ public class StartScreen {
 					//TODO send player to create pet
 					screen.win.setVisible(false);
 					screen.win.dispose();
-					PetTest.main(args);
 				}
 				
 
