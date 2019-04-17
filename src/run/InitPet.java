@@ -7,7 +7,7 @@ import thePet.StoreObjects;
 
 public class InitPet {
 	
-	public static void initPet() {
+	public static Pet initPet() {
 		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Hello, friend!");
@@ -23,16 +23,20 @@ public class InitPet {
 			pGender = input.next();
 		}
 		
-		String itemName = null;
-		int price = 0;
-		int health = 0;
-		int hunger = 0;
+//		String itemName = null;
+//		int price = 0;
+//		int health = 0;
+//		int hunger = 0;
+//		
+//	
+//		idk why this is here but ill ask ANI about it
+//		StoreObjects item = new StoreObjects(itemName, price, health, hunger);
 		
-	
-		StoreObjects item = new StoreObjects(itemName, price, health, hunger);
-		
-		Pet yourPet = new Pet(pName, pGender);
 		input.close();
+		
+		return  new Pet(pName, pGender);
+
+		
 	//TODO figure out how I want to pass the pet around and where I want shit running from!!
 	}
 

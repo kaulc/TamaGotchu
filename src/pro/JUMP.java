@@ -1,16 +1,23 @@
 package pro;
 
 import processing.core.PApplet;
+import run.MainMenu;
+import thePet.Pet;
 
 public class JUMP extends PApplet{
 
+	private static Pet myPet;
 	
-	public static void main(String args[]) {
+	public static void main(String args[], Pet inPet) {
 		
+		//Find out how I want to pass the pet into here so it actually makes changes on the pet class
+		//THis may or may not be neccesary
+		//Fuck processing code is so weird fuckig
 		PApplet.main("pro.JUMP");
-		
+		myPet = inPet;
 		
 	}
+	
 	
 	
 	
@@ -190,12 +197,17 @@ public class JUMP extends PApplet{
 
 			void crashAndBurn() {
 			  println("YOU LOSE");
+			  myPet.addHunger(5);
 			  exit();
+			  MainMenu.menu(myPet);
 			}
 
 			void winnerWinner() {
-			  println("YOU WIN");
+			  println("CONGRADULATIONS, YOU WIN 50 POINTS!");
+			  myPet.addPoints(50);
+			  myPet.addHunger(5);
 			  exit();
+			  MainMenu.menu(myPet);
 			}
 			    
 			    
