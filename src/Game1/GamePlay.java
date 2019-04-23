@@ -282,7 +282,7 @@ public class GamePlay {
 					p.getAttacked(m.giveDamage);
 
 				petTurn = 1;
-				if (p.checkHealth() == false || m.checkHealth() == false) // if someone dies, break
+				if (p.checkHealth() == false || m.checkHealth() == false) // if someone dies, break fgfgf
 					break;
 			}
 
