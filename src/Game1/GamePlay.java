@@ -2,7 +2,11 @@ package Game1;
 
 import java.util.Scanner;
 
+import thePet.Pet;
+
 public class GamePlay {
+	
+	public static Pet mypet;
 
 	static Protagonist p = new Protagonist(50, 3, 15, 4000); // STATS WILL BE IMPORTED FROM OTHER PET CLASSES
 	static Boolean play = true;
@@ -76,7 +80,7 @@ public class GamePlay {
 			// System.out.println("TESTING: numRounds = " + numRounds);
 			roundCounter = 0;
 
-			while (roundCounter < numRounds) {
+			while (roundCounter < numRounds && play) {
 
 				numSteps = (int) ((Math.random() * numRounds * 2) + roundCounter + 1); // generates num steps for
 																						// next round based on
@@ -84,9 +88,9 @@ public class GamePlay {
 				stepCounter = 0;
 				// System.out.println("TESTING: numSteps = " + numSteps);
 
-				while (stepCounter < numSteps) {
+				while (stepCounter < numSteps && play) {
 					System.out.println();
-					
+					System.out.println("choice: " + choice);
 					// 1. apple
 					if (choice == 1) {
 						System.out.println("You encounter an apple! Pick it up? [d] for yes, [f] for no");
@@ -153,7 +157,7 @@ public class GamePlay {
 					}
 					else {
 
-						System.out.print("Now you can either go left, right, or forward. What do you choose? [s/d/f]");
+						System.out.print("asNow you can either go left, right, or forward. What do you choose? [s/d/f]");
 						System.out.println();
 
 						/////
@@ -282,7 +286,7 @@ public class GamePlay {
 		if (p.checkHealth() == false) {
 			System.out.println("\nYou died :( Come back and try again later");
 			play = false;
-			System.exit(0);
+			System.exit(0); // delete 
 		} else if (m.checkHealth() == false) {
 			System.out.println("\nYay, Monster died! You can continue your journey into the castle");
 			play = true;
