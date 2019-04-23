@@ -81,14 +81,12 @@ public class Shop {
 		
 		for(int i =0; i< items.length; i++ ) {
 			
-				
 				StoreObjects s = items[i];
 				String a = s.toString();
 				System.out.print(i + " ");
 				System.out.println(a);
-			if (i % 4 == 0) {
-			System.out.println();
-			}
+				
+			
 		}
 		
 	}
