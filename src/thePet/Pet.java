@@ -145,6 +145,20 @@ package thePet;
 		//inventory methods
 		public List<StoreObjects> getInventory() {
 			return inventory;
+			
+		}
+		
+		
+		public void printInventory() {
+			for(int i =0; i< inventory.size(); i++ ) {
+				StoreObjects s = inventory.get(i);
+				String a = s.toString();
+				System.out.print(i + " "+ a);
+				
+			if (i % 4 == 0) {
+				System.out.println();
+				}
+			}
 		}
 		
 		public void addInventory(StoreObjects item) {
