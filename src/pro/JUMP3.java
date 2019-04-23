@@ -200,7 +200,7 @@ public class JUMP3 extends PApplet{
 			}
 
 			void winnerWinner() {
-			  println("CONGRADULATIONS, YOU WIN 150 POINTS");
+			  println("CONGRATULATIONS, YOU WIN 150 POINTS");
 			  myPet.addHunger(5);
 			  myPet.addPoints(150);
 			  exit();

@@ -16,12 +16,13 @@ import javax.swing.JWindow;
 import pro.JUMP;
 import pro.JUMP2;
 import pro.JUMP3;
+import thePet.Pet;
 //import thePet.PetTest;
 
 public class StartScreen {
 	private static Color myC0 = new Color(164, 196, 0, 254);
 
-	private static String[] args = {};
+	//private static String[] args = {};
 	private final static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	private static Font bold = new Font("bold", Font.BOLD, screenSize.height/20);
 	private static Font normal = new Font("normal", Font.PLAIN, screenSize.height/30);
@@ -80,8 +81,10 @@ public class StartScreen {
 	}
 	
 
-	public static void initJump() {
+	public static void initJump(Pet myPet) {
 
+		//TODO fix me
+		String args[] = {myPet.getName(), myPet.getGender()};
 		StartScreen screen = new StartScreen();
 
 		JLabel text = new JLabel("<html> <br><br><br> Please select which level you'd like to play</html>");
@@ -123,7 +126,7 @@ public class StartScreen {
 		frame.setLayout(null);
 		frame.setUndecorated(true);
 		frame.setVisible(true);
-		//frame.setAlwaysOnTop(true);
+		frame.setAlwaysOnTop(true);
 
 		button.addActionListener(new ActionListener() {
 

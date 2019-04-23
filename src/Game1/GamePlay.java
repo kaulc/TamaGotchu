@@ -2,8 +2,14 @@ package Game1;
 
 import java.util.Scanner;
 
+import run.MainMenu;
+import thePet.Pet;
+
 public class GamePlay {
 
+	//TODO Figure out where to call the menu class after the game is over
+	
+	//FIXME use the passed in Pet to set these values
 	static Protagonist p = new Protagonist(50, 3, 15, 4000); // STATS WILL BE IMPORTED FROM OTHER PET CLASSES
 	static Boolean play = true;
 	static Scanner sc = new Scanner(System.in);
@@ -24,7 +30,7 @@ public class GamePlay {
 		p = pro;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args, Pet myPet) {
 
 		// Contralar controller = new Contralar();
 
@@ -169,7 +175,7 @@ public class GamePlay {
 				}
 
 				System.out.println("\nOh no! You face a monster. Defeat it to continue your journey in the castle!\n ");
-				fightMonster(generateNewMonster(p.getLevel()));
+				fightMonster(generateNewMonster(p.getLevel()), myPet);
 
 				roundCounter++;
 			}
@@ -189,7 +195,7 @@ public class GamePlay {
 
 			System.out.println(
 					"\n\nIt's the final monster!! Defeat it to finally claim your riches!");
-			fightMonster(generateBossMonster(p.getLevel()));
+			fightMonster(generateBossMonster(p.getLevel()), myPet);
 			// generate boss monster and fight him - hard fight
 		}
 
@@ -214,7 +220,7 @@ public class GamePlay {
 			return new BlueMonster(petlevel);
 	}
 
-	private static Boolean fightMonster(Monster m) {
+	private static Boolean fightMonster(Monster m, Pet myPet) {
 
 		System.out.println("~~~");
 		int petTurn = (int) (Math.random() * 2); // true or false, randomizes who starts fighting first
@@ -276,6 +282,7 @@ public class GamePlay {
 			System.out.println("\nYou died :( Come back and try again later");
 			play = false;
 			System.exit(0);
+			MainMenu.menu(myPet);
 		} else if (m.checkHealth() == false) {
 			System.out.println("\nYay, Monster died! You can continue your journey into the castle");
 			play = true;

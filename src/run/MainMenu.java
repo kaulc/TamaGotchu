@@ -2,83 +2,107 @@ package run;
 
 import java.util.Scanner;
 
+import Game1.GamePlay;
 import thePet.Pet;
 
 public class MainMenu {
 
+	private static String[] args = {};
+
+	// for testing, seems to be working fine here
+	public static void main(String[] args) {
+
+	Pet myPet = new Pet("Bill", "M");
+	menu(myPet);
+	}
+
 	public static void menu(Pet myPet) {
 
-		String userInput ="";
-		Scanner user = new Scanner(System.in);
 		System.out.println();
 		System.out.print("Welcome, " + myPet.getName());
-		System.out.println(". What would you like to do?");
-		System.out.println("Games Feed Walk Status");
-		userInput += user.next();
-		
 
+		Scanner in = new Scanner(System.in);
 
-//		while (!userInput.equals("Games") && !userInput.equals("Feed") && !userInput.equals("Walk")
-//				&& !userInput.equals("Status")) {
+		while (true) {
 
-		//should be able to use whlie(true) since I'll be calling other methods from within this, if there seem to be 
-		//error we can check back here
-		//FIXME
-		while(!userInput.isEmpty()) {
+			System.out.println("What would you like to do?");
+			System.out.println("Games Shop Care Status");
+			String userInput = in.next();
+
 			if (userInput.equals("Games")) {
 
 				String gamesIn = "";
 				// Send them to games
 				System.out.println("Which game would you like to play?");
-				//Move "shop" into feed
-				System.out.println("Jump   Castle");
+				// Move "shop" into feed
+				System.out.println("Jump   Castle   Back");
+
+				gamesIn += in.next();
+
 				
-				gamesIn += user.next();
-				
-				while(!gamesIn.isEmpty()) {
-					
-					if(userInput.equals("Jump")) {
-						
-						StartScreen.initJump();
+
+					if (gamesIn.equals("Jump")) {
+
+						StartScreen.initJump(myPet);
+					}
+
+					else if (gamesIn.equals("Castle")) {
+
+						GamePlay.main(args, myPet);
 					}
 					
-					else if(userInput.equals("Castle")) {
+					else if(gamesIn.equals("Back")) {
+						menu(myPet);
 						
-						//send to castle
 					}
-					
+
 					else {
-						
+
 						System.out.println("Sorry we didn't quite get that, please type in your choice again");
-						gamesIn = user.next();
-											
+						gamesIn = in.next();
+
 					}
+
+				
+
+			}
+
+			else if (userInput.equals("Shop")) {
+
+				// shop is bugged rn. some reason only printing out the last item in the shop
+				System.out.println("Welcome to the Shop! Here's what we have in stock\n");
+				Shop.showShop();
+				System.out.println("Please enter in the item number of what you'd like to buy");
+				//either add more here or create a shop method to handle transactions
+
+			}
+
+			else if (userInput.equals("Care")) {
+
+				// TODO give option of walk or feed
+				System.out.println("What would you like to do?");
+				System.out.println("Feed Walk Back");
+				userInput = in.next();
+				
+				if(userInput.equals("Feed")) {
+					//TODO open up feed menu
 					
 				}
 				
-
-			}
-
-			else if (userInput.equals("Feed")) {
-
-				//add shop to the bottom if the user has no items
-				// Send to feed menu
+				if(userInput.equals("Walk")) {
+					//TODO walk menu? differnet lengths? idk maybe just a plain + something
+					
+				}
 				
-				
-				
-				
-
-			}
-
-			else if (userInput.equals("Walk")) {
-
-				// Walk or Send to walk menu??
+				if(userInput.equals("Back")) {
+					continue;
+				}
 
 			}
 
 			else if (userInput.equals("Status")) {
 
-				//Print out status and offer them to make another choice
+				// Print out status and offer them to make another choice
 				System.out.println("Name: " + myPet.getName());
 				System.out.println("Gender: " + myPet.getGender());
 				System.out.println("Level " + myPet.getLevel());
@@ -98,9 +122,8 @@ public class MainMenu {
 
 			else {
 
-				System.out.println(
-						"Oops, we can't quite tell what you wanted to do, please enter what you'd like to do again");
-				userInput = user.next();
+				System.out.println("Sorry we can't understand that");
+				continue;
 
 			}
 
