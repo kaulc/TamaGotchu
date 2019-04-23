@@ -80,10 +80,15 @@ public class Shop {
 		System.out.printf("%-15s %-6s %-6s %-6s\n", "Item", "Cost", "Health", "Hunger" );
 		
 		for(int i =0; i< items.length; i++ ) {
-			StoreObjects s = items[i];
-			String a = s.toString();
-			System.out.print(i + " ");
-			System.out.println(a);
+			
+				
+				StoreObjects s = items[i];
+				String a = s.toString();
+				System.out.print(i + " ");
+				System.out.println(a);
+			if (i % 4 == 0) {
+			System.out.println();
+			}
 		}
 		
 	}
