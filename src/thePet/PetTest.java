@@ -1,6 +1,11 @@
 package thePet;
 
 import java.util.ArrayList;
+import run.Launcher;
+import run.StartScreen;
+import pro.JUMP;
+import Game1.GamePlay;
+
 import java.util.Scanner;
 
 import contralar.Contralar;
@@ -12,29 +17,23 @@ import thePet.Pet;
 		public static void main(String[] args) {
 			
 			Scanner input = new Scanner(System.in);
-			Contralar d= new Contralar();
-			System.out.println("Hello, welcome!");
+//			System.out.println("Hello, welcome!");
+//			
+//			System.out.print("Type your pet's name: ");			
+//			String pName = input.next();
+//			System.out.print("\n Is your pet Male or Female? (M/F)");
+//			String pGender = input.next();  
+//			
+//			String itemName = null;
+//			int price = 0;
+//			int health = 0;
+//			int hunger = 0;
+//			
+//		
+//			StoreObjects item = new StoreObjects(itemName, price, health, hunger);
+//			
+//			Pet yourPet = new Pet(pName, pGender);
 			
-			//System.out.print("Would you like to load from file??");
-			
-			//System.out.print("Which Pet would you like? (1, 2, 3)");
-			//String mainInput = input.next();
-			
-			//System.out.print("Please enter in the name for your new pet: ");
-			System.out.print("David     Chinar    Simon     Ani");			
-			String pName = input.next();
-			System.out.print("\n Is your pet Male or Female? (M/F)");
-			String pGender = input.next();  
-			
-			String itemName = null;
-			int price = 0;
-			int health = 0;
-			int hunger = 0;
-			
-		
-			StoreObjects item = new StoreObjects(itemName, price, health, hunger);
-			
-			Pet yourPet = new Pet(pName, pGender);
 			
 			
 			System.out.println("Hi, " + yourPet.getName() + " it's nice to meet you!");
@@ -44,9 +43,20 @@ import thePet.Pet;
 			String mainInput = input.next();
 			
 			if(mainInput.equals("Games")) {
-				System.out.println("Jump   Castle   Fight   Shop");
-				
+				System.out.println("Jump   Castle   Shop");
 				String gamesInput = input.next();
+				
+				if (gamesInput.equals("Jump")) {
+					//Launcher.main(args);
+					StartScreen.initScreen();
+					
+				}
+				
+				if (gamesInput.equals("Castle")) {
+					GamePlay.main(args);
+					
+				}
+				
 				
 				if (gamesInput.equals("Shop")) {
 					System.out.println("Press the number for the item, attributes are price, health, and hunger: " +

@@ -2,12 +2,16 @@ package Game1;
 
 import java.util.Scanner;
 
+import run.MainMenu;
 import thePet.Pet;
 
 public class GamePlay {
 	
 	public static Pet mypet;
 
+	//TODO Figure out where to call the menu class after the game is over
+	
+	//FIXME use the passed in Pet to set these values
 	static Protagonist p = new Protagonist(50, 3, 15, 4000); // STATS WILL BE IMPORTED FROM OTHER PET CLASSES
 	static Boolean play = true;
 	static Scanner sc = new Scanner(System.in);
@@ -28,7 +32,7 @@ public class GamePlay {
 		p = pro;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args, Pet myPet) {
 
 		// Contralar controller = new Contralar();
 
@@ -287,7 +291,8 @@ public class GamePlay {
 		if (p.checkHealth() == false) {
 			System.out.println("\nYou died :( Come back and try again later");
 			play = false;
-			System.exit(0); // delete 
+			System.exit(0);
+			//MainMenu.menu(myPet);
 		} else if (m.checkHealth() == false) {
 			System.out.println("\nYay, Monster died! You can continue your journey into the castle");
 			play = true;

@@ -58,12 +58,12 @@ package thePet;
 		
 		//health methods
 		
-		public void healthDecrease(double decreaseAmt) {
+		public void removeHealth(double decreaseAmt) {
 			health = Math.max(health - decreaseAmt, 0);
 			isDead();
 		}
 		
-		public void healthIncrease(double addAmt) {
+		public void addHealth(double addAmt) {
 			health = Math.min(health + addAmt, 100);
 		}
 		
@@ -135,6 +135,10 @@ package thePet;
 		
 		public void decreaseHunger(double decreaseAmt) {
 			hunger = Math.max(hunger - decreaseAmt, 0);
+		}
+		
+		public void setHunger(double setAmt) {
+			hunger =  Math.min(setAmt, 100);
 		}
 		
 		

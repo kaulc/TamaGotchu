@@ -8,10 +8,10 @@ public class Protagonist extends LivingThing implements FightingActions, Action 
 	private int points;
 
 	public Protagonist(int h, int l, int hu, int p) {
-		health = h;
-		level = l;
-		hunger = hu;
-		points = p;
+		health = h; // 0 to 100, game health different than pet 
+		level = l; 
+		hunger = hu; // 0 to 100
+		points = p; // 0 to 1000s
 		alive = true;
 	}
 
