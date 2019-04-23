@@ -169,11 +169,12 @@ public class GamePlay {
 								System.out.println("You turn right and continue walking.");
 							if (tempAns.equals("f"))
 								System.out.println("You continue walking forward.");
+							tempAns = tempAns.toLowerCase();
+							stepCounter++;
+							choice = p.chooseAction();
 						}
 						/////
-						tempAns = tempAns.toLowerCase();
-						stepCounter++;
-						choice = p.chooseAction();
+						
 					}
 				}
 
