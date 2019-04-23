@@ -84,7 +84,11 @@ public class StartScreen {
 	public static void initJump(Pet myPet) {
 
 		//TODO fix me
-		String args[] = {myPet.getName(), myPet.getGender()};
+		//Chaning everything from the PET into a string so I can pass it into the main 
+		//method of JUMP where I turn it back from a string to it's initial type
+		//JUMP2 AND JUMP 3 DON'T WORK RN!!!! 
+		//GET RID OF PET PARAMETER IN MAIN METHOD 
+		String args[] = {String.valueOf(myPet.getAge()), myPet.getGender()};
 		StartScreen screen = new StartScreen();
 
 		JLabel text = new JLabel("<html> <br><br><br> Please select which level you'd like to play</html>");

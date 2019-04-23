@@ -1,5 +1,6 @@
 package run;
 
+import java.util.List;
 import java.util.Scanner;
 
 import thePet.Pet;
@@ -27,6 +28,7 @@ public class Shop {
 	}
 	
 	//FIXME!!! for some reason items isn't getting init right? idk  
+	//now it's ok?
 	public static void showShop() {
 		
 		StoreObjects[] items = new StoreObjects[29];
@@ -73,7 +75,7 @@ public class Shop {
 		
 		
 		
-		Scanner input = new Scanner(System.in);
+
 		
 		System.out.printf("%-15s %-6s %-6s %-6s\n", "Item", "Cost", "Health", "Hunger" );
 		
@@ -84,10 +86,8 @@ public class Shop {
 			System.out.println(a);
 		}
 		
-		
-		
 	}
-	 
+	
 	
 	
 	
