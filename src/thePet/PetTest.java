@@ -17,22 +17,22 @@ import thePet.Pet;
 		public static void main(String[] args) {
 			
 			Scanner input = new Scanner(System.in);
-//			System.out.println("Hello, welcome!");
-//			
-//			System.out.print("Type your pet's name: ");			
-//			String pName = input.next();
-//			System.out.print("\n Is your pet Male or Female? (M/F)");
-//			String pGender = input.next();  
-//			
-//			String itemName = null;
-//			int price = 0;
-//			int health = 0;
-//			int hunger = 0;
-//			
-//		
-//			StoreObjects item = new StoreObjects(itemName, price, health, hunger);
-//			
-//			Pet yourPet = new Pet(pName, pGender);
+			System.out.println("Hello, welcome!");
+			
+			System.out.print("Type your pet's name: ");			
+			String pName = input.next();
+			System.out.print("\n Is your pet Male or Female? (M/F)");
+			String pGender = input.next();  
+			
+			String itemName = null;
+			int price = 0;
+			int health = 0;
+			int hunger = 0;
+			
+		
+			StoreObjects item = new StoreObjects(itemName, price, health, hunger);
+			
+			Pet yourPet = new Pet(pName, pGender);
 			
 			
 			
