@@ -8,13 +8,13 @@ public class StoreObjects {
 private String name;
 private int price;
 private int health;
-private int hunger;
+private int energy;
 
-    public StoreObjects(String name, int price, int health, int hunger){
+    public StoreObjects(String name, int price, int health, int energy){
 	      this.name = name;
 	      this.price = price;
 	      this.health = health;
-	      this.hunger = hunger;
+	      this.energy = energy;
 	}
     
     
@@ -86,14 +86,14 @@ private int hunger;
 		return health;
 	}
 	
-	public int getHunger() {
-		return hunger;
+	public int getEnergy() {
+		return energy;
 	}
 	
 	public String toString() {
-		//String toRet = getName() + getPrice() + getHealth() + getHunger();
+		//String toRet = getName() + getPrice() + getHealth() + getenergy();
 		
-		String toRet = String.format("%-15s %-6d %-6d %-6d", getName(), getPrice(), getHealth(), getHunger());
+		String toRet = String.format("%-15s %-6d %-6d %-6d", getName(), getPrice(), getHealth(), getEnergy());
 		
 		return toRet;
 		

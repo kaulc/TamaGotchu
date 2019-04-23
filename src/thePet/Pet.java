@@ -13,14 +13,14 @@ package thePet;
 		private String gender;
 		private double level;
 		private int points;
-		private double hunger;
+		private double energy;
 		public List<StoreObjects> inventory = new ArrayList<>();
 		private boolean isDead;
 		
 		
 		
 		public Pet(int age, int health, String name, double level, String gender,
-				int points,double hunger, List<StoreObjects> inventory, int numItems, boolean isDead ) {
+				int points,double energy, List<StoreObjects> inventory, int numItems, boolean isDead ) {
 			
 			this.age = age;
 			this.health = health;
@@ -28,7 +28,7 @@ package thePet;
 			this.level = level;
 			this.gender = gender;
 			this.points = points;
-			this.hunger = hunger;
+			this.energy = energy;
 			this.inventory = inventory;
 			this.isDead = isDead;
 			
@@ -40,7 +40,7 @@ package thePet;
 			health = 100;
 			level = 0;
 			points = 500;
-			hunger = 100;
+			energy = 100;
 			this.gender = gender;
 		}
 		
@@ -122,23 +122,23 @@ package thePet;
 		}
 		
 		
-		//hunger methods
+		//energy methods
 		
 		
-		public double getHunger() {
-			return hunger;
+		public double getEnergy() {
+			return energy;
 		}
 		
-		public void addHunger(double addAmt) {
-			hunger = Math.min(hunger + addAmt, 100);
+		public void addEnergy(double addAmt) {
+			energy = Math.min(energy + addAmt, 100);
 		}
 		
-		public void decreaseHunger(double decreaseAmt) {
-			hunger = Math.max(hunger - decreaseAmt, 0);
+		public void decreaseEnergy(double decreaseAmt) {
+			energy = Math.max(energy - decreaseAmt, 0);
 		}
 		
-		public void setHunger(double setAmt) {
-			hunger =  Math.min(setAmt, 100);
+		public void setEnergy(int setAmt) {
+			energy =  Math.min(setAmt, 100);
 		}
 		
 		

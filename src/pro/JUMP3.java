@@ -194,14 +194,14 @@ public class JUMP3 extends PApplet{
 
 			void crashAndBurn() {
 			  println("YOU LOSE :,(");
-			  myPet.addHunger(5);
+			  myPet.decreaseEnergy(5);
 			  exit();
 			  MainMenu.menu(myPet);
 			}
 
 			void winnerWinner() {
 			  println("CONGRATULATIONS, YOU WIN 150 POINTS");
-			  myPet.addHunger(5);
+			  myPet.decreaseEnergy(5);
 			  myPet.addPoints(150);
 			  exit();
 			  MainMenu.menu(myPet);

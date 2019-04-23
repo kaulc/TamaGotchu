@@ -193,7 +193,7 @@ public class JUMP2 extends PApplet{
 
 			void crashAndBurn() {
 			  println("YOU LOSE");
-			  myPet.addHunger(5);
+			  myPet.decreaseEnergy(5);
 			  exit();
 			  MainMenu.menu(myPet);
 			}
@@ -201,7 +201,7 @@ public class JUMP2 extends PApplet{
 			void winnerWinner() {
 			  println("CONGRATULATIONS, YOU WIN 100 POINTS!");
 			  myPet.addPoints(100);
-			  myPet.addHunger(5);
+			  myPet.decreaseEnergy(5);
 			  exit();
 			  MainMenu.menu(myPet);
 			}

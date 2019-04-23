@@ -41,7 +41,7 @@ public class JUMP extends PApplet{
 		
 		myPet = new Pet(/*age*/Integer.parseInt(args[0]), /*health*/Integer.parseInt(args[1]),/* name*/args[2],/* level*/Double.parseDouble(args[3]),
 				/* gender*/args[4],/* points*/Integer.parseInt(args[5]), 
-				/*hunger*/Double.parseDouble(args[6]), /*inventory*/inv, /*numItems*/Integer.parseInt(args[8]), /*isDead*/Boolean.parseBoolean(args[9]));
+				/*Energy*/Double.parseDouble(args[6]), /*inventory*/inv, /*numItems*/Integer.parseInt(args[8]), /*isDead*/Boolean.parseBoolean(args[9]));
 		
 	}
 	
@@ -224,7 +224,7 @@ public class JUMP extends PApplet{
 
 			void crashAndBurn() {
 			  println("YOU LOSE");
-			  myPet.addHunger(5);
+			  myPet.decreaseEnergy(5);
 			  exit();
 			  
 			  MainMenu.menu(myPet);
@@ -233,7 +233,7 @@ public class JUMP extends PApplet{
 			void winnerWinner() {
 			  println("CONGRATULATIONS, YOU WIN 50 POINTS!");
 			  myPet.addPoints(50);
-			  myPet.addHunger(5);
+			  myPet.decreaseEnergy(5);
 			  exit();
 			  MainMenu.menu(myPet);
 			}

@@ -15,8 +15,9 @@ public class MainMenu {
 	public static void main(String[] args) {
 
 		Pet myPet = new Pet("Bill", "M");
+		
 		myPet.setHealth(50);
-		myPet.setHunger(50);
+		myPet.setEnergy(50);
 		menu(myPet);
 	}
 
@@ -114,7 +115,7 @@ public class MainMenu {
 				System.out.println("Age: " + myPet.getAge());
 				System.out.println("Points: " + myPet.getPoints());
 				System.out.println("Health: " + myPet.getHealth());
-				System.out.println("Hunger: " + myPet.getHunger());
+				System.out.println("Energy: " + myPet.getEnergy());
 				System.out.println("Inventory Items: " );
 				myPet.printInventory();
 				menu(myPet);
@@ -167,7 +168,7 @@ public class MainMenu {
 
 		StoreObjects feedObj = inv.get(toFeed);
 		myPet.addHealth(feedObj.getHealth());
-		myPet.decreaseHunger(feedObj.getHunger());
+		myPet.decreaseEnergy(feedObj.getEnergy());
 		//TODO make sure this actually removes the item from the users inventory 
 		myPet.removeInventory(inv.get(toFeed));
 
@@ -178,7 +179,7 @@ public class MainMenu {
 		System.out.println("Age: " + myPet.getAge());
 		System.out.println("Points: " + myPet.getPoints());
 		System.out.println("Health: " + myPet.getHealth());
-		System.out.println("Hunger: " + myPet.getHunger());
+		System.out.println("Energy: " + myPet.getEnergy());
 		System.out.println("Inventory Items: ");
 		myPet.printInventory();
 

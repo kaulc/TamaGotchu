@@ -75,7 +75,7 @@ public class Shop {
 		
 
 		
-		System.out.printf("%-15s %-6s %-6s %-6s\n", "Item", "Cost", "Health", "Hunger" );
+		System.out.printf("%-15s %-6s %-6s %-6s\n", "Item", "Cost", "Health", "Energy" );
 		
 		for(int i =0; i< items.length; i++ ) {
 			
