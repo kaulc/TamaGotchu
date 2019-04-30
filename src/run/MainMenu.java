@@ -58,13 +58,9 @@ public class MainMenu {
 
 					else if (gamesIn.equals("Castle")) {
 
-<<<<<<< HEAD
-						GamePlay.newProtagonist(myPet);
-=======
 						selection = false;
 						GamePlay.myPet.setPoints(myPet.getPoints());
 						GamePlay.main(args);
->>>>>>> master
 					}
 
 					else if (gamesIn.equals("Back")) {
@@ -79,9 +75,7 @@ public class MainMenu {
 						gamesIn = in.next();
 
 					}
-
 				}
-
 			}
 
 			else if (userInput.equals("Shop")) {
@@ -217,14 +211,39 @@ public class MainMenu {
 	
 	
 	public static void walkMenu(Pet myPet) {
-		System.out.println("How long of a walk would you like to take?");
-		while(true) {
-			System.out.println("*Short* *Long*");
-			//TODO code choices
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("How long of a walk would you like to take? Short or Long");
+		String choice = in.next();
+		
+		while (true) {
 			
+			if (choice.equals("Short")) {
+				myPet.addHealth(5);
+				myPet.decreaseEnergy(5);
+				myPet.ageIncrease();
+				myPet.increaseLevel(0.5);
+				
+				System.out.println(myPet.getName() + " feels really great!");
+				menu(myPet);
+			}
+		
+			else if (choice.equals("Long")) {
+				myPet.addHealth(10);
+				myPet.decreaseEnergy(10);
+				myPet.ageIncrease();
+				myPet.increaseLevel(1);
+				
+				System.out.println(myPet.getName() + " feels really great!");
+				menu(myPet);
+			}	
+		
+			else {
+				System.out.print("Sorry, we couldn't get that you ape");
+				continue;
+			}
+		
 		}
-		
-		
 	}
 	
 	public static void shopMenu(Pet myPet) {
@@ -257,7 +276,7 @@ public class MainMenu {
 			StoreObjects toBuy = shopInv[userInput];
 			
 			if(myPet.getPoints() <= toBuy.getPrice()) {
-				System.out.println("Sorry ur a broke boi ï¿½\\_(UwU)_/ï¿½, come back for that item later");
+				System.out.println("Sorry ur a broke boi ¯\\_(UwU)_/¯, come back for that item later");
 				System.out.println("In the mean time, how about you buy something more in your range");
 				Shop.showShop();
 				continue;
