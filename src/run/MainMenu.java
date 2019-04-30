@@ -54,7 +54,7 @@ public class MainMenu {
 
 					else if (gamesIn.equals("Castle")) {
 
-						GamePlay.main(args);
+						GamePlay.newProtagonist(myPet);
 					}
 
 					else if (gamesIn.equals("Back")) {
@@ -241,7 +241,7 @@ public class MainMenu {
 			StoreObjects toBuy = shopInv[userInput];
 			
 			if(myPet.getPoints() <= toBuy.getPrice()) {
-				System.out.println("Sorry ur a broke boi ¯\\_(UwU)_/¯, come back for that item later");
+				System.out.println("Sorry ur a broke boi ï¿½\\_(UwU)_/ï¿½, come back for that item later");
 				System.out.println("In the mean time, how about you buy something more in your range");
 				Shop.showShop();
 				continue;

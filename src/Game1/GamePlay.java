@@ -35,13 +35,16 @@ public class GamePlay {
 	
 	public static void newProtagonist(Pet pet1) {
 		p = new Protagonist(pet1.getHealth(), pet1.getLevel(), pet1.getEnergy(), pet1.getPoints());
+		myPet = pet1;
+		String[] args = {};
+		main(args);
 	}
 
 	public static void main(String[] args) {
 
 		// Contralar controller = new Contralar();
 		
-		newProtagonist(myPet);
+		//newProtagonist(myPet);
 		
 		String tempAns = "";
 		int numSteps = 0; // step = # actions taken to find one monster
@@ -67,6 +70,7 @@ public class GamePlay {
 			if (tempAns.equals("d")) {
 				System.out.println("Okay thanks for playing, bye");
 				play = false;
+				MainMenu.menu(myPet);
 				break;
 			}
 			if (tempAns.equals("s")) {
@@ -329,6 +333,7 @@ public class GamePlay {
 			else if (m.boss) {
 				System.out.println("\nYay, Boss Monster died! You WIN!!!");
 				play = false; 
+				
 				MainMenu.menu(myPet);
 				// cut to main menu
 			}
