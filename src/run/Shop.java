@@ -8,7 +8,6 @@ import thePet.StoreObjects;
 
 /**
  * Shows shop, gives user option to buy things based on how many coins they've earned in games
- * @author david
  *
  */
 public class Shop {
@@ -19,9 +18,8 @@ public class Shop {
 		Pet myPet = new Pet("bob", "M");
 		
 		showShop();
-		
-		
 	}
+	
 	
 	public static void showShop() {
 		
@@ -34,11 +32,11 @@ public class Shop {
 		 items[4] = new StoreObjects("Gold Shirt", 1000, 0 , 0);
 		 
 		 
-		 items[5] = new StoreObjects("Green items", 300, 0, 0);
-		 items[6] = new StoreObjects("Blue items", 300, 0 , 0);
-		 items[7] = new StoreObjects("Red items", 300, 0 , 0);
-		 items[8] = new StoreObjects("Yellow items", 300, 0 , 0);
-		 items[9] = new StoreObjects("Gold items", 1500, 0 , 0);
+		 items[5] = new StoreObjects("Green Pants", 300, 0, 0);
+		 items[6] = new StoreObjects("Blue Pants", 300, 0 , 0);
+		 items[7] = new StoreObjects("Red Pants", 300, 0 , 0);
+		 items[8] = new StoreObjects("Yellow Pants", 300, 0 , 0);
+		 items[9] = new StoreObjects("Gold Pants", 1500, 0 , 0);
 		 
 		 
 		 items[10] = new StoreObjects("Nikes", 500, 0, 0);
@@ -70,7 +68,6 @@ public class Shop {
 		
 		
 		
-
 		
 		System.out.printf("%-15s %-6s %-6s %-6s\n", "Item", "Cost", "Health", "Energy" );
 		
@@ -80,8 +77,7 @@ public class Shop {
 				String a = s.toString();
 				System.out.print(i + " ");
 				System.out.println(a);
-				
-			
+		
 		}
 		
 	}

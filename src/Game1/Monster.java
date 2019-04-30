@@ -3,7 +3,7 @@ package Game1;
 public abstract class Monster extends LivingThing implements FightingActions {
 
 	protected String keyMove;
-	protected Boolean boss;
+	protected Boolean boss = false;
 	protected String[] keyMoves = {"Scissorkick", "Megapunch", "Jabbyjab", "Superslap"};
 	protected String[] moves = {"kick", "punch", "jab", "slap"};
 	
@@ -12,6 +12,7 @@ public abstract class Monster extends LivingThing implements FightingActions {
 		this.level = level;
 		this.keyMove = keyMove;
 		alive = true;
+		boss = false;
 	}
 	
 	public Monster() {
