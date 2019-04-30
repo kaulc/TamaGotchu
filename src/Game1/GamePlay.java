@@ -323,7 +323,7 @@ public class GamePlay {
 				System.out.println("\nYay, Boss Monster died! You WIN!!!");
 				System.out.println("~~~");
 				play = false;
-
+				myPet.setPoints(p.getPoints());
 				MainMenu.menu(myPet);
 				// cut to main menu
 			}
