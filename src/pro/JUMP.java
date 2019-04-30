@@ -16,32 +16,9 @@ public class JUMP extends PApplet{
 	
 	public static void main(String args[]) {
 		
-		//Find out how I want to pass the pet into here so it actually makes changes on the pet class
-		//THis may or may not be neccesary
-		//Fuck processing code is so weird fuckig
-		//FIXME
-		//JUMP DOESN'T WORK WHEN A PET CLASS IS PASSED IN :/ :?
-		//Right now I don't know how to get JUMP to actually award points to the player
-	
 		
 
 		PApplet.main("pro.JUMP");
-		
-		
-		
-		ArrayList<StoreObjects> inv = new ArrayList<>();
-		int i =10;
-		while(i<args.length) {
-			
-			inv.add(StoreObjects.findObj(args[10]));
-		}
-		
-		
-		
-		
-		myPet = new Pet(/*age*/Integer.parseInt(args[0]), /*health*/Integer.parseInt(args[1]),/* name*/args[2],/* level*/Double.parseDouble(args[3]),
-				/* gender*/args[4],/* points*/Integer.parseInt(args[5]), 
-				/*Energy*/Double.parseDouble(args[6]), /*inventory*/inv, /*numItems*/Integer.parseInt(args[8]), /*isDead*/Boolean.parseBoolean(args[9]));
 		
 	}
 	
@@ -225,6 +202,8 @@ public class JUMP extends PApplet{
 			void crashAndBurn() {
 			  println("YOU LOSE");
 			  myPet.decreaseEnergy(5);
+			  myPet.increaseLevel(.25);
+			  myPet.ageIncrease();
 			  exit();
 			  
 			  MainMenu.menu(myPet);
@@ -234,6 +213,8 @@ public class JUMP extends PApplet{
 			  println("CONGRATULATIONS, YOU WIN 50 POINTS!");
 			  myPet.addPoints(50);
 			  myPet.decreaseEnergy(5);
+			  myPet.increaseLevel(.5);
+			  myPet.ageIncrease();
 			  exit();
 			  MainMenu.menu(myPet);
 			}

@@ -121,6 +121,10 @@ package thePet;
 			points = Math.max(points - decreaseAmt, 0);
 		}
 		
+		public void setPoints(int points) {
+			this.points = points;
+		}
+		
 		
 		//energy methods
 		

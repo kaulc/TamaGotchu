@@ -149,12 +149,14 @@ public class StartScreen {
 					frame.dispose();
 					screen.win.setVisible(false);
 					screen.win.dispose();
+					JUMP2.myPet = myPet;
 					JUMP2.main(args);
 				} else if (text.equals("3")) {
 					frame.setVisible(false);
 					frame.dispose();
 					screen.win.setVisible(false);
 					screen.win.dispose();
+					JUMP3.myPet = myPet;
 					JUMP3.main(args);
 				}
 

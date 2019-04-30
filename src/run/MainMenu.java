@@ -27,8 +27,11 @@ public class MainMenu {
 		System.out.print("Welcome, " + myPet.getName() + ". ");
 
 		Scanner in = new Scanner(System.in);
+		
+		boolean running = true;
+		boolean selection = true;
 
-		while (true) {
+		while (running) {
 
 			System.out.println("What would you like to do?");
 			System.out.println("Games Shop Care Status");
@@ -44,20 +47,28 @@ public class MainMenu {
 
 				gamesIn += in.next();
 
-				while (true) {
+				while (selection) {
 
 					if (gamesIn.equals("Jump")) {
 
 						//rn only jump1 works, see initJump for more
+						selection = false;
 						StartScreen.initJump(myPet);
 					}
 
 					else if (gamesIn.equals("Castle")) {
 
+<<<<<<< HEAD
 						GamePlay.newProtagonist(myPet);
+=======
+						selection = false;
+						GamePlay.myPet.setPoints(myPet.getPoints());
+						GamePlay.main(args);
+>>>>>>> master
 					}
 
 					else if (gamesIn.equals("Back")) {
+						selection = false;
 						menu(myPet);
 
 					}
@@ -75,7 +86,7 @@ public class MainMenu {
 
 			else if (userInput.equals("Shop")) {
 
-				// shop is bugged rn. some reason only printing out the last item in the shop
+				
 				shopMenu(myPet);
 
 			}
@@ -123,7 +134,8 @@ public class MainMenu {
 			}
 
 			else if (userInput.equals("SuperSecretCode")) {
-				System.out.println("wow u found it gj");
+				System.out.println("wow u found it gj, enjoy ;)");
+				myPet.addInventory(new StoreObjects("FireBall", 0, 100, 100));
 
 			}
 
@@ -168,8 +180,7 @@ public class MainMenu {
 
 		StoreObjects feedObj = inv.get(toFeed);
 		myPet.addHealth(feedObj.getHealth());
-		myPet.decreaseEnergy(feedObj.getEnergy());
-		//TODO make sure this actually removes the item from the users inventory 
+		myPet.addEnergy(feedObj.getEnergy());
 		myPet.removeInventory(inv.get(toFeed));
 
 		System.out.println("WOW good job! Your Pet's stats are now: ");
@@ -226,9 +237,14 @@ public class MainMenu {
 		while(true) {
 		System.out.println("Please enter in the item number of what you'd like to buy");
 		System.out.println("You have:" + myPet.getPoints() + " points!");
+		System.out.println("Or enter '29' to go back to the Main Menu");
 		
 		int userInput = in.nextInt();
 		in.nextLine();
+		
+		if(userInput == 29) {
+			menu(myPet);
+		}
 		
 		if(userInput> 28 || userInput < 0) {
 			System.out.println("Sorry we don't have that in stock right now,");
