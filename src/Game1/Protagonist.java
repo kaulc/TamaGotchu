@@ -18,7 +18,7 @@ public class Protagonist extends LivingThing implements FightingActions, Action 
 	public void stats() {
 		System.out.println("Health = " + health);
 		System.out.println("Level = " + level);
-		System.out.println("Hunger = " + energy);
+		System.out.println("Energy = " + energy);
 		System.out.println("Points = " + points);
 	}
 
