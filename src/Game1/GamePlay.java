@@ -32,7 +32,7 @@ public class GamePlay {
 		p = pro;
 	}
 
-	public static void main(String[] args, Pet myPet) {
+	public static void main(String[] args) {
 
 		// Contralar controller = new Contralar();
 
@@ -47,7 +47,7 @@ public class GamePlay {
 
 		System.out.println("Welcome to Castle Dash");
 		System.out.println("You find yourself at the entrance of a castle. You read a sign that states: ");
-		System.out.println("- In this castle lies a room of riches. If you find it, you keep it. Enter at your risk.");
+		System.out.println("- In this castle lies a room of riches. If you find it, you keep it. Enter at your risk.\n");
 		System.out.println("Press [a] to enter the castle and start playing, [s] for stats, or [d] to exit.");
 
 		if (sc.hasNextLine())
@@ -94,8 +94,7 @@ public class GamePlay {
 
 				while (stepCounter < numSteps && play) {
 					System.out.println();
-					System.out.println("choice: " + choice);
-					// 1. apple
+					
 					if (choice == 1) {
 						System.out.println("You encounter an apple! Pick it up? [d] for yes, [f] for no");
 
@@ -161,8 +160,9 @@ public class GamePlay {
 					}
 					else {
 
-						System.out.print("asNow you can either go left, right, or forward. What do you choose? [s/d/f]");
+						System.out.print("Now you can either go left, right, or forward. What do you choose? [s/d/f]");
 						System.out.println();
+						if (choice == 10) sc.nextLine();
 
 						/////
 						if (sc.hasNextLine()) {
@@ -184,7 +184,7 @@ public class GamePlay {
 
 				System.out.println("\nOh no! You face a monster. Defeat it to continue your journey in the castle!\n ");
 				fightMonster(generateNewMonster(p.getLevel()));
-				choice = 4;
+				choice = 10;
 
 				roundCounter++;
 			}
@@ -231,12 +231,17 @@ public class GamePlay {
 	}
 
 	private static Boolean fightMonster(Monster m) {
-
+		
+		Boolean keypress = false; 
+		
 		System.out.println("~~~");
 		int petTurn = (int) (Math.random() * 2); // true or false, randomizes who starts fighting first
 		String tempAns = "";
 
 		m.introStats();
+		keypress = false;
+		System.out.println("Press any key to begin");
+		if (sc.hasNext()) keypress = true;
 
 		while (p.checkHealth() == true && m.checkHealth() == true) { // fight till someone dies
 			if (petTurn == 1) {
@@ -245,10 +250,13 @@ public class GamePlay {
 
 				tempAns = "x";
 
-				while (!tempAns.equals("s") && !tempAns.equals("d") && !tempAns.equals("f")) { // prompt user for proper
-																								// input
-					tempAns = sc.next();
-					tempAns = tempAns.toLowerCase().trim();
+				while (!tempAns.equals("s") && !tempAns.equals("d") && !tempAns.equals("f")) { // prompt user for proper input
+					
+					if (sc.hasNext()) {
+						tempAns = sc.next();
+						tempAns = tempAns.toLowerCase().trim();
+					}
+					
 
 					////
 					if (tempAns.equals("s")) { // CHANGE TO NUMBERS RETURNED FROM TEST BUTTONS
@@ -274,6 +282,12 @@ public class GamePlay {
 				if (p.checkHealth() == false || m.checkHealth() == false) // if someone dies, break
 					break;
 				petTurn = 0;
+				/*
+				System.out.println("Press any key to continue");
+				keypress = false;
+				sc.next();
+				if (sc.next().equals("p")) keypress = true;
+				*/
 			}
 			if (petTurn == 0) {
 				System.out.println();
@@ -284,6 +298,12 @@ public class GamePlay {
 				petTurn = 1;
 				if (p.checkHealth() == false || m.checkHealth() == false) // if someone dies, break fgfgf
 					break;
+				/*
+				System.out.println("Press any key to continue");
+				keypress = false; 
+				sc.next();
+				if (sc.next().equals("p")) keypress = true;
+				*/
 			}
 
 		}
@@ -294,8 +314,17 @@ public class GamePlay {
 			System.exit(0);
 			//MainMenu.menu(myPet);
 		} else if (m.checkHealth() == false) {
-			System.out.println("\nYay, Monster died! You can continue your journey into the castle");
-			play = true;
+			if (!m.boss) {
+				System.out.println("\nYay, Monster died! You can continue your journey into the castle");
+				p.addPoints(50);
+				play = true;
+			}
+			else if (m.boss) {
+				System.out.println("\nYay, Boss Monster died! You WIN!!!");
+				play = false; 
+				// cut to main menu
+			}
+			
 		}
 		System.out.println("~~~");
 		return play;
