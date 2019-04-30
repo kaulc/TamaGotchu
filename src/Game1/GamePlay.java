@@ -12,9 +12,10 @@ public class GamePlay {
 	//TODO Figure out where to call the menu class after the game is over
 	
 	//FIXME use the passed in Pet to set these values
-	static Protagonist p = new Protagonist(50, 3, 15, 4000); // STATS WILL BE IMPORTED FROM OTHER PET CLASSES
+	//static Protagonist p = new Protagonist(50, 3, 15, 4000); // STATS WILL BE IMPORTED FROM OTHER PET CLASSES
 	static Boolean play = true;
 	static Scanner sc = new Scanner(System.in);
+	static Protagonist p;
 
 	public Boolean getPlay() {
 		return play;
@@ -28,14 +29,20 @@ public class GamePlay {
 		return p;
 	}
 
-	public void setProtagonist(Protagonist pro) {
+	public static void setProtagonist(Protagonist pro) {
 		p = pro;
 	}
+	
+	public static void newProtagonist(Pet pet1) {
+		p = new Protagonist(pet1.getHealth(), pet1.getLevel(), pet1.getEnergy(), pet1.getPoints());
+	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args, Pet myPet) {
 
 		// Contralar controller = new Contralar();
-
+		
+		newProtagonist(myPet);
+		
 		String tempAns = "";
 		int numSteps = 0; // step = # actions taken to find one monster
 		int numRounds = 0; // round = # monsters fought to reach final monster
@@ -214,11 +221,11 @@ public class GamePlay {
 
 	
 
-	private static Monster generateBossMonster(int petlevel) {
+	private static Monster generateBossMonster(double petlevel) {
 		return new BossMonster(petlevel);
 	}
 
-	private static Monster generateNewMonster(int petlevel) {
+	private static Monster generateNewMonster(double petlevel) {
 
 		// random number generator to choose which monster to randomly create
 		int whichMons = (int) (Math.random() * 3);

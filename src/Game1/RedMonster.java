@@ -8,9 +8,9 @@ public class RedMonster extends Monster{
 	}
 
 	// monster with random stats
-	public RedMonster(int petLevel) {
+	public RedMonster(double petlevel) {
 
-		level = (int) (Math.random() * petLevel); // monster level is random number <= petLevel
+		level = (int) (Math.random() * petlevel); // monster level is random number <= petLevel
 		health = (int) ((Math.random() * 40) + 15);
 		keyMove = keyMoves[(int) (Math.random() * 4)]; // chooses one of 4 possible keyMoves from set list
 		alive = true;
