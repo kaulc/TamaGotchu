@@ -8,8 +8,8 @@ public class BossMonster extends Monster{
 	}
 		
 	// monster with random stats
-	public BossMonster(int petLevel) {
-		level = (int) (Math.random() * petLevel) + (petLevel * 2 / 3); // monster level is random number close to petLevel
+	public BossMonster(double petlevel) {
+		level = (int) (Math.random() * petlevel) + (petlevel * 2 / 3); // monster level is random number close to petLevel
 		health = (int) ((Math.random() * 110) + 50);
 		keyMove = keyMoves[(int) (Math.random() * 4)]; // chooses one of 4 possible keyMoves from set list
 		alive = true;
@@ -26,11 +26,11 @@ public class BossMonster extends Monster{
 		
 		if (keyMoveTF == 1) {
 			System.out.println("Monster attacks with key move!");
-			giveDamage = 2 * ((int)(Math.random() * level) + (health * 2 / 3)) + 28; // random algorithm to determine attack intensity - doubled for key move
+			giveDamage = (int) (2 * ((int)(Math.random() * level) + (health * 2 / 3)) + 28); // random algorithm to determine attack intensity - doubled for key move
 		}
 		else {
 			System.out.println("Monster attacks");
-			giveDamage = (int)(Math.random() * level) + (health * 2 / 3); // random algorithm to determine attack intensity
+			giveDamage = (int) ((int)(Math.random() * level) + (health * 2 / 3)); // random algorithm to determine attack intensity
 		}
 		
 		System.out.println("Monster inflicts " + giveDamage + " damage");

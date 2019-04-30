@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Protagonist extends LivingThing implements FightingActions, Action {
 
-	private int hunger;
+	private double energy;
 	private int points;
 
-	public Protagonist(int h, int l, int hu, int p) {
+	public Protagonist(double h, double l, double en, int p) {
 		health = h; // 0 to 100, game health different than pet 
 		level = l; 
-		hunger = hu; // 0 to 100
+		energy = en; // 0 to 100
 		points = p; // 0 to 1000s
 		alive = true;
 	}
@@ -18,13 +18,13 @@ public class Protagonist extends LivingThing implements FightingActions, Action 
 	public void stats() {
 		System.out.println("Health = " + health);
 		System.out.println("Level = " + level);
-		System.out.println("Hunger = " + hunger);
+		System.out.println("Hunger = " + energy);
 		System.out.println("Points = " + points);
 	}
 
 	// getters
-	public int getHunger() {
-		return hunger;
+	public double getHunger() {
+		return energy;
 	}
 
 	public int getPoints() {
@@ -50,7 +50,7 @@ public class Protagonist extends LivingThing implements FightingActions, Action 
 	public int attack() {
 		System.out.println("You attack!");
 		lastMove = "attack";
-		giveDamage = (int) (Math.random() * level) + (health / 2); // random algorithm to determine attack intensity
+		giveDamage = (int) ((int) (Math.random() * level) + (health / 2)); // random algorithm to determine attack intensity
 		System.out.println("You inflict " + giveDamage + " damage");
 		return giveDamage;
 	}

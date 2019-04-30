@@ -3,6 +3,7 @@ package Game1;
 public abstract class Monster extends LivingThing implements FightingActions {
 
 	protected String keyMove;
+	protected Boolean boss;
 	protected String[] keyMoves = {"Scissorkick", "Megapunch", "Jabbyjab", "Superslap"};
 	protected String[] moves = {"kick", "punch", "jab", "slap"};
 	
@@ -14,6 +15,10 @@ public abstract class Monster extends LivingThing implements FightingActions {
 	}
 	
 	public Monster() {
+	}
+	
+	public void setBoss(Boolean bool) {
+		boss = bool;
 	}
 	
 	public void getKeyMove() {
@@ -61,11 +66,11 @@ public abstract class Monster extends LivingThing implements FightingActions {
 		
 		if (keyMoveTF == 1) {
 			System.out.println("Monster attacks with key move!");
-			giveDamage = 2 * ((int)(Math.random() * level) + (health / 3)) + 14; // random algorithm to determine attack intensity - doubled for key move
+			giveDamage = (int) (((int)(Math.random() * level) + (health / 5)) + 10); // random algorithm to determine attack intensity - doubled for key move
 		}
 		else {
 			System.out.println("Monster attacks");
-			giveDamage = (int)(Math.random() * level) + (health / 3); // random algorithm to determine attack intensity
+			giveDamage = (int) ((int)(Math.random() * level) + (Math.random() * (health / 5))); // random algorithm to determine attack intensity
 		}
 		
 		System.out.println("Monster inflicts " + giveDamage + " damage");
