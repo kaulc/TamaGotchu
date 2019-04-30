@@ -6,13 +6,12 @@ import thePet.Pet;
 
 public class JUMP2 extends PApplet{
 
-	private static Pet myPet;
+	public static Pet myPet;
 	
-	public static void main(String args[], Pet inPet) {
+	public static void main(String args[]) {
 		
 		PApplet.main("pro.JUMP2");
-		
-		myPet = inPet;
+
 	}
 	
 	
@@ -194,6 +193,8 @@ public class JUMP2 extends PApplet{
 			void crashAndBurn() {
 			  println("YOU LOSE");
 			  myPet.decreaseEnergy(5);
+			  myPet.increaseLevel(.25);
+			  myPet.ageIncrease();
 			  exit();
 			  MainMenu.menu(myPet);
 			}
@@ -202,6 +203,8 @@ public class JUMP2 extends PApplet{
 			  println("CONGRATULATIONS, YOU WIN 100 POINTS!");
 			  myPet.addPoints(100);
 			  myPet.decreaseEnergy(5);
+			  myPet.increaseLevel(.5);
+			  myPet.ageIncrease();
 			  exit();
 			  MainMenu.menu(myPet);
 			}

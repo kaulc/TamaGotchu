@@ -23,13 +23,9 @@ public class Shop {
 		
 	}
 	
-	
-	
-	//FIXME!!! for some reason items isn't getting init right? idk  
-	//now it's ok?
 	public static void showShop() {
 		
-		StoreObjects[] items = new StoreObjects[29];
+		StoreObjects[] items = new StoreObjects[30];
 		
 		 items[0] = new StoreObjects("Green Shirt", 200, 0, 0);
 		 items[1] = new StoreObjects("Blue Shirt", 200, 0 , 0);
@@ -70,6 +66,7 @@ public class Shop {
 		 items[26] = new StoreObjects("Medium Potion", 200, 50 , 50);
 		 items[27] = new StoreObjects("Good Potion", 300, 75, 75);
 		 items[28] = new StoreObjects("Best Potion", 500, 100, 100);
+		 items[29] = new StoreObjects("MainMenu", 99999, 0, 0);
 		
 		
 		
