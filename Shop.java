@@ -17,15 +17,13 @@ public class Shop {
 	//for testing
 	public static void main(String[] args) {
 		Pet myPet = new Pet("bob", "M");
-		StoreObjects item = new StoreObjects("Boi", 10, 10, 10);
-		StoreObjects item2 = new StoreObjects("Boi2", 10, 10, 10);
-		myPet.addInventory(item);
-		myPet.addInventory(item2);
 		
 		showShop();
 		
 		
 	}
+	
+	
 	
 	//FIXME!!! for some reason items isn't getting init right? idk  
 	//now it's ok?
@@ -77,7 +75,7 @@ public class Shop {
 		
 
 		
-		System.out.printf("%-15s %-6s %-6s %-6s\n", "Item", "Cost", "Health", "Hunger" );
+		System.out.printf("%-15s %-6s %-6s %-6s\n", "Item", "Cost", "Health", "Energy" );
 		
 		for(int i =0; i< items.length; i++ ) {
 			
