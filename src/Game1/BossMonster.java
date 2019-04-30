@@ -13,6 +13,7 @@ public class BossMonster extends Monster{
 		health = (int) ((Math.random() * 110) + 50);
 		keyMove = keyMoves[(int) (Math.random() * 4)]; // chooses one of 4 possible keyMoves from set list
 		alive = true;
+		boss = true;
 	}
 	
 	public void introStats() {
@@ -26,11 +27,11 @@ public class BossMonster extends Monster{
 		
 		if (keyMoveTF == 1) {
 			System.out.println("Monster attacks with key move!");
-			giveDamage = (int) (2 * ((int)(Math.random() * level) + (health * 2 / 3)) + 28); // random algorithm to determine attack intensity - doubled for key move
+			giveDamage = (int) (1 * ((int)(Math.random() * level) + (health * 1 / 5)) / 3); // random algorithm to determine attack intensity - doubled for key move
 		}
 		else {
 			System.out.println("Monster attacks");
-			giveDamage = (int) ((int)(Math.random() * level) + (health * 2 / 3)); // random algorithm to determine attack intensity
+			giveDamage = (int) ((int)(Math.random() * level) + (health * 1 / 5)); // random algorithm to determine attack intensity
 		}
 		
 		System.out.println("Monster inflicts " + giveDamage + " damage");

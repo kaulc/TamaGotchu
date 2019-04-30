@@ -7,7 +7,7 @@ import thePet.Pet;
 
 public class GamePlay {
 	
-	public static Pet mypet;
+	public static Pet myPet;
 
 	//TODO Figure out where to call the menu class after the game is over
 	
@@ -37,7 +37,7 @@ public class GamePlay {
 		p = new Protagonist(pet1.getHealth(), pet1.getLevel(), pet1.getEnergy(), pet1.getPoints());
 	}
 
-	public static void main(String[] args, Pet myPet) {
+	public static void main(String[] args) {
 
 		// Contralar controller = new Contralar();
 		
@@ -213,6 +213,7 @@ public class GamePlay {
 			System.out.println(
 					"\n\nIt's the final monster!! Defeat it to finally claim your riches!");
 			fightMonster(generateBossMonster(p.getLevel()));
+			
 			// generate boss monster and fight him - hard fight
 		}
 
@@ -318,8 +319,7 @@ public class GamePlay {
 		if (p.checkHealth() == false) {
 			System.out.println("\nYou died :( Come back and try again later");
 			play = false;
-			System.exit(0);
-			//MainMenu.menu(myPet);
+			MainMenu.menu(myPet);
 		} else if (m.checkHealth() == false) {
 			if (!m.boss) {
 				System.out.println("\nYay, Monster died! You can continue your journey into the castle");
@@ -329,6 +329,7 @@ public class GamePlay {
 			else if (m.boss) {
 				System.out.println("\nYay, Boss Monster died! You WIN!!!");
 				play = false; 
+				MainMenu.menu(myPet);
 				// cut to main menu
 			}
 			
