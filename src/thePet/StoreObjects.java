@@ -110,11 +110,11 @@ private int energy;
 		 items[4] = new StoreObjects("Gold Shirt", 1000, 0 , 0);
 		 
 		 
-		 items[5] = new StoreObjects("Green items", 300, 0, 0);
-		 items[6] = new StoreObjects("Blue items", 300, 0 , 0);
-		 items[7] = new StoreObjects("Red items", 300, 0 , 0);
-		 items[8] = new StoreObjects("Yellow items", 300, 0 , 0);
-		 items[9] = new StoreObjects("Gold items", 1500, 0 , 0);
+		 items[5] = new StoreObjects("Green Pants", 300, 0, 0);
+		 items[6] = new StoreObjects("Blue Pants", 300, 0 , 0);
+		 items[7] = new StoreObjects("Red Pants", 300, 0 , 0);
+		 items[8] = new StoreObjects("Yellow Pants", 300, 0 , 0);
+		 items[9] = new StoreObjects("Gold Pants", 1500, 0 , 0);
 		 
 		 
 		 items[10] = new StoreObjects("Nikes", 500, 0, 0);
