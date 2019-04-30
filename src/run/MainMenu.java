@@ -59,6 +59,7 @@ public class MainMenu {
 					else if (gamesIn.equals("Castle")) {
 
 						selection = false;
+						GamePlay.myPet.setPoints(myPet.getPoints());
 						GamePlay.main(args);
 					}
 
