@@ -11,8 +11,7 @@ public class JUMP3 extends PApplet{
 	public static void main(String args[], Pet inPet) {
 		
 		PApplet.main("pro.JUMP3");
-		
-		myPet = inPet;
+
 	}
 	
 	

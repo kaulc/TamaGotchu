@@ -54,7 +54,7 @@ public class MainMenu {
 
 					else if (gamesIn.equals("Castle")) {
 
-						GamePlay.main(args, myPet);
+						GamePlay.main(args);
 					}
 
 					else if (gamesIn.equals("Back")) {
