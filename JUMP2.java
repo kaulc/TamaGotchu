@@ -4,14 +4,15 @@ import processing.core.PApplet;
 import run.MainMenu;
 import thePet.Pet;
 
-public class JUMP3 extends PApplet{
+public class JUMP2 extends PApplet{
 
 	private static Pet myPet;
 	
 	public static void main(String args[], Pet inPet) {
 		
-		PApplet.main("pro.JUMP3");
-
+		PApplet.main("pro.JUMP2");
+		
+		myPet = inPet;
 	}
 	
 	
@@ -73,9 +74,9 @@ public class JUMP3 extends PApplet{
 		  }
 		  
 		 //middle walls
-		  for(i = 50; i<width; i+= 800) {
+		  for(i = 50; i<width; i+= 400) {
 		    
-		    Wall mid = new Wall(i, height/2, fat, height/2);
+		    Wall mid = new Wall(i, height/2, fat, height/7);
 		    mid.draw();
 		    
 		    if(hitTest(player, mid)) {
@@ -112,7 +113,6 @@ public class JUMP3 extends PApplet{
 		 if(px >= width) {
 		   winnerWinner();
 		 }
-		 
 	}
 	
 	
@@ -192,16 +192,16 @@ public class JUMP3 extends PApplet{
 			}
 
 			void crashAndBurn() {
-			  println("YOU LOSE :,(");
+			  println("YOU LOSE");
 			  myPet.decreaseEnergy(5);
 			  exit();
 			  MainMenu.menu(myPet);
 			}
 
 			void winnerWinner() {
-			  println("CONGRATULATIONS, YOU WIN 150 POINTS");
+			  println("CONGRATULATIONS, YOU WIN 100 POINTS!");
+			  myPet.addPoints(100);
 			  myPet.decreaseEnergy(5);
-			  myPet.addPoints(150);
 			  exit();
 			  MainMenu.menu(myPet);
 			}

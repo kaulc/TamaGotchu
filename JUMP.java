@@ -1,18 +1,50 @@
 package pro;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 import processing.core.PApplet;
+
+
 import run.MainMenu;
 import thePet.Pet;
+import thePet.StoreObjects;
 
-public class JUMP3 extends PApplet{
+public class JUMP extends PApplet{
 
-	private static Pet myPet;
+	public static Pet myPet;
 	
-	public static void main(String args[], Pet inPet) {
+	public static void main(String args[]) {
 		
-		PApplet.main("pro.JUMP3");
+		//Find out how I want to pass the pet into here so it actually makes changes on the pet class
+		//THis may or may not be neccesary
+		//Fuck processing code is so weird fuckig
+		//FIXME
+		//JUMP DOESN'T WORK WHEN A PET CLASS IS PASSED IN :/ :?
+		//Right now I don't know how to get JUMP to actually award points to the player
+	
+		
 
+		PApplet.main("pro.JUMP");
+		
+		
+		
+		ArrayList<StoreObjects> inv = new ArrayList<>();
+		int i =10;
+		while(i<args.length) {
+			
+			inv.add(StoreObjects.findObj(args[10]));
+		}
+		
+		
+		
+		
+		myPet = new Pet(/*age*/Integer.parseInt(args[0]), /*health*/Integer.parseInt(args[1]),/* name*/args[2],/* level*/Double.parseDouble(args[3]),
+				/* gender*/args[4],/* points*/Integer.parseInt(args[5]), 
+				/*Energy*/Double.parseDouble(args[6]), /*inventory*/inv, /*numItems*/Integer.parseInt(args[8]), /*isDead*/Boolean.parseBoolean(args[9]));
+		
 	}
+	
 	
 	
 	
@@ -37,7 +69,7 @@ public class JUMP3 extends PApplet{
 	 
 	
 	public void draw() {
-		 background(0);
+		  background(0);
 		  
 		  
 		  
@@ -47,7 +79,7 @@ public class JUMP3 extends PApplet{
 		  player.draw();
 		    
 		 //bottom walls
-		   for(i=100; i<width; i +=425) {
+		   for(i=100; i<width; i +=500) {
 		    fill(200,0,200);
 		    Wall bot = new Wall(i, height, fat, -height/4);
 		    bot.draw();
@@ -60,10 +92,10 @@ public class JUMP3 extends PApplet{
 		  
 		  
 		 //top walls
-		  for(i = 400; i<width; i += 320) {
+		  for(i = 200; i<width; i += 350) {
 		    fill(200,0,200);
 		    
-		   Wall top= new Wall(i, 0, fat, height/2);
+		   Wall top= new Wall(i, 0, fat, height/4);
 		    top.draw();
 		    if(hitTest(player, top)) {
 		      //TODO exit and crash
@@ -73,9 +105,9 @@ public class JUMP3 extends PApplet{
 		  }
 		  
 		 //middle walls
-		  for(i = 50; i<width; i+= 800) {
+		  for(i = 150; i<width; i+= 400) {
 		    
-		    Wall mid = new Wall(i, height/2, fat, height/2);
+		    Wall mid = new Wall(i, height/2, fat, height/7);
 		    mid.draw();
 		    
 		    if(hitTest(player, mid)) {
@@ -87,7 +119,7 @@ public class JUMP3 extends PApplet{
 		  
 		  
 		    Wall rand = new Wall(255, height/2, fat, height/4);
-		  Wall rand2 = new Wall(600, height/3, fat, height/3);
+		  Wall rand2 = new Wall(500, height/6, fat, height/3);
 		  rand.draw();
 		  rand2.draw();
 		  
@@ -108,11 +140,10 @@ public class JUMP3 extends PApplet{
 		println(player.getPosy());
 		 **/
 		 px++;
-		 
-		 if(px >= width) {
-		   winnerWinner();
-		 }
-		 
+
+		if(px >= width) {
+		  winnerWinner();
+		}
 	}
 	
 	
@@ -192,16 +223,17 @@ public class JUMP3 extends PApplet{
 			}
 
 			void crashAndBurn() {
-			  println("YOU LOSE :,(");
+			  println("YOU LOSE");
 			  myPet.decreaseEnergy(5);
 			  exit();
+			  
 			  MainMenu.menu(myPet);
 			}
 
 			void winnerWinner() {
-			  println("CONGRATULATIONS, YOU WIN 150 POINTS");
+			  println("CONGRATULATIONS, YOU WIN 50 POINTS!");
+			  myPet.addPoints(50);
 			  myPet.decreaseEnergy(5);
-			  myPet.addPoints(150);
 			  exit();
 			  MainMenu.menu(myPet);
 			}
@@ -214,6 +246,11 @@ public class JUMP3 extends PApplet{
 			     e.posy + e.h > a.posy);
 			     
 			  }
+	
+			
+			
+			
+    
 			    		
 	
 }
